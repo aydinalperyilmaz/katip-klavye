@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F Klavye ve Q Klavye On Parmak Dersleri | Kâtip Klavye</title>
+<meta name="description" content="Adım adım F klavye ve Q klavye on parmak dersleri: ekranda parmak gösteren klavye, yıldızlı 20 adım ve zayıf tuşunuza göre uyarlanan akıllı çalışma. Ücretsiz, kayıt gerekmez.">
+<meta property="og:title" content="F Klavye ve Q Klavye On Parmak Dersleri | Kâtip Klavye">
+<meta property="og:description" content="Adım adım F klavye ve Q klavye on parmak dersleri: ekranda parmak gösteren klavye, yıldızlı 20 adım ve zayıf tuşunuza göre uyarlanan akıllı çalışma. Ücretsiz, kayıt gerekmez.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="app.css">
+</head>
+<body data-site="1" data-bolum="ders" >
+<header><div class="ust">
+ <a class="logo" href="index.html" style="text-decoration:none;color:#fff">Kâtip<span>Klavye</span></a>
+ <button id="menuAc" aria-label="Menü">Menü</button>
+ <nav>
+  <a data-s="ana" href="index.html">Ana Sayfa</a>
+  <span class="grup">Sınav</span>
+  <a data-s="sinav" href="sinav-simulasyonu.html">Sınav Simülasyonu</a>
+  <a data-s="hiz" href="klavye-hiz-testi.html">Hız Testi</a>
+  <span class="grup">Çalışma</span>
+  <a data-s="ders" href="klavye-dersleri.html" class="on">Klavye Dersleri</a>
+  <a data-s="kelime" href="kelime-egzersizi.html">Kelime Egzersizi</a>
+  <a data-s="hata" href="zayif-tus-ve-kelime.html">Zayıf Tuş ve Kelime</a>
+  <a data-s="okuma" href="hizli-okuma.html">Hızlı Okuma</a>
+  <span class="grup">Oyun</span>
+  <a data-s="oyun" href="klavye-oyunlari.html">Oyunlar</a>
+  <span class="grup">Takip</span>
+  <a data-s="taban" href="adliye-taban-puanlari.html">Hangi adliye kaç kelime ve kaç KPSS ile kapattı?</a>
+  <a data-s="ist" href="istatistik.html">İstatistik</a>
+  <a data-s="arac" href="araclar.html">Araçlar</a>
+  <a data-s="ayar" href="ayarlar.html">Ayarlar</a>
+ </nav>
+</div></header>
+<main>
+
+<section id="ana">
+ <div class="kahraman">
+  <div><h1>Zabıt kâtipliği klavye sınavına hazırlanın</h1>
+   <p>3 dakika · en az 90 doğru kelime · hata oranı en çok %25. Gerçek sınav kurallarıyla, özgün metinlerle çalışın. Kayıt gerekmez.</p>
+   <div class="satir" style="margin:0"><button class="btn sari" data-git="sinav">Sınav simülasyonunu başlat</button><button class="btn seffaf" data-git="ders">Klavye dersleri</button></div></div>
+  <div class="sonuc" id="ozet"></div>
+ </div>
+ <div class="iki">
+  <div class="kart"><h2>Metin Kütüphanesi</h2>
+   <p class="soluk" style="margin-top:-6px"><b>İşaretli:</b> yazdığınız kelime renklenir, çalışma içindir. <b>Deneme:</b> işaretleme yoktur, gerçek sınav gibidir.</p>
+   <div class="satir"><input type="search" id="kAra" placeholder="Metin ara"><label style="flex:0">Tür<select id="kTur"><option value="">Tümü</option><option value="genel">Genel</option><option value="adliye">Adliye</option></select></label></div>
+   <div id="kListe"></div>
+  </div>
+  <div>
+   <div class="kart"><h2>Klavye Dersleri</h2><p class="soluk" style="margin-top:-6px">Sıra sıra harf çalışmaları, hukuk terimleri ve rakam çalışması.</p>
+    <div class="satir" style="margin:0"><button class="btn" id="anaF">F klavye dersleri</button><button class="btn gri" id="anaQ">Q klavye dersleri</button></div></div>
+   <div class="kart"><h2>Hedefiniz</h2><div id="anaHedef" class="soluk"></div><p style="margin-bottom:0"><button class="btn gri kucuk" data-git="arac">Araçlara git</button></p></div>
+   <div class="kart"><h2>Resmî metinle çalış</h2><p class="soluk" style="margin-top:-6px">Bakanlığın yayımladığı metni yapıştırıp sınav biçiminde çalışın.</p><button class="btn gri kucuk" data-git="sinavayar">Kendi metnimi yapıştır</button></div>
+  </div>
+ </div>
+ <div class="bolum">Çalışmalar</div>
+ <div class="izgara">
+  <button class="secenek" data-git="hiz"><b>Hız Testi</b><span class="soluk">Sık kelimelerle 1, 2, 3 veya 5 dakikalık ısınma.</span></button>
+  <button class="secenek" data-git="kelime"><b>Kelime Egzersizi</b><span class="soluk">Hukuk terimleri ve uzun kelimeleri art arda tekrar.</span></button>
+  <button class="secenek" data-git="hata"><b>Zayıf Tuş ve Kelime</b><span class="soluk">En çok hata yaptığınız tuş ve kelimelerle çalışma.</span></button>
+  <button class="secenek" data-git="okuma"><b>Hızlı Okuma</b><span class="soluk">Okuma hızı testi ve kelime akışı egzersizi.</span></button>
+  <button class="secenek" data-git="oyun"><b>Oyunlar</b><span class="soluk">Kelime Yağmuru ve Rakiple Yarış.</span></button>
+  <button class="secenek" data-git="taban"><b>Hangi adliye kaç kelime ve kaç KPSS ile kapattı?</b><span class="soluk">Kelime sayınızı ve KPSS puanınızı yazın; hangi adliyelere yettiğini görün.</span></button>
+  <button class="secenek" data-git="ist"><b>İstatistik</b><span class="soluk">Gelişim grafiği, en iyi ve ortalama sonuçlar.</span></button>
+ </div>
+</section>
+
+<section id="calis" hidden>
+ <div class="kart">
+  <div class="satir" style="justify-content:space-between">
+   <h2 id="calisBaslik" style="margin:0"></h2>
+   <div class="satir" style="margin:0"><button class="btn gri" id="sesDugme">Klavye sesi</button><button class="btn gri" id="yenile">Yeni metin</button><button class="btn gri" id="bitir">Bitir</button></div>
+  </div>
+  <div class="sayac">
+   <div>Kalan süre<b id="cSure">3:00</b></div>
+   <div>Doğru kelime<b id="cDogru">0</b></div>
+   <div>Yanlış kelime<b id="cYanlis">0</b></div>
+   <div>Dakikada kelime<b id="cDks">0</b></div>
+   <div>Doğruluk<b id="cAcc">%100</b></div>
+  </div>
+  <div id="yaris" hidden><div class="serit"><span>Siz</span><div class="bar"><i id="yBen"></i></div></div><div class="serit"><span>Rakip</span><div class="bar"><i id="yRakip"></i></div></div></div>
+  <div id="metin" aria-live="off"></div>
+  <input id="giris" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Yazmaya başlayınca süre başlar. Kelimeyi yazıp boşluğa basın.">
+  <p class="soluk">Kelimeyi yazıp boşluk tuşuna basınca sıradaki kelimeye geçilir. Boşluğa basmadan önce Geri tuşuyla düzeltebilirsiniz. Büyük-küçük harf ve noktalama sayılır.</p>
+ </div>
+</section>
+
+<section id="serbest" hidden>
+ <div class="kart sbKart">
+  <div class="sbUst">
+   <label>Metin seti<select id="sbSet"></select></label>
+   <label class="genis">Metin<select id="sbSec"></select></label>
+   <div class="sbGrup"><button class="btn gri kucuk" id="sbOnceki" title="Önceki metin">‹</button><button class="btn gri kucuk" id="sbSonraki" title="Sonraki metin">›</button><button class="btn gri kucuk" id="sbRast">Rastgele</button><button class="btn gri kucuk" id="sbYeniden" title="Kısayol: Esc">Yeniden başlat</button></div>
+   <div class="sbGrup"><button class="btn sari kucuk" id="sbSinavMod" title="5’ten geri sayar, süre kendiliğinden başlar, işaretleme ve ayarlar kapanır">Sınav modu</button><button class="btn gri kucuk" id="sbTam">Tam ekran</button></div>
+   <span id="sbSinavBaslik"></span>
+   <span class="sbBos"></span>
+   <button class="btn gri kucuk" id="sbCik">Sınavdan çık</button>
+   <span class="sbSayi">Kelime <b id="sbKelime">0</b></span>
+   <span class="sbSayi sure">Süre <b id="sbSure">3:00</b></span>
+  </div>
+  <div id="sbBilgi" class="soluk"></div>
+  <div id="sbMetin"></div>
+  <textarea id="sbGiris" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Buraya yazın. İlk tuşla birlikte süre başlar."></textarea>
+  <div class="sbArac">
+   <label>Sınav türü<select id="sbTur"><option value="zabit">Zabıt kâtibi</option><option value="icra">İcra kâtibi</option><option value="cte">Cezaevi kâtibi (büro personeli)</option></select></label>
+   <label>Sınav süresi<select id="sbSureSec"><option value="1">1 dk</option><option value="2">2 dk</option><option value="3">3 dk (sınav)</option><option value="4">4 dk</option><option value="5">5 dk</option><option value="10">10 dk</option></select></label>
+   <label>İmla durumu<select id="sbBicim"><option value="resmi">İmlasız (küçük harf, noktalamasız; sınav)</option><option value="normal">İmlalı (büyük harf ve noktalama)</option></select></label>
+   <label>Yazı tipi<select id="sbTip"><option value="mono">Courier New (daktilo)</option><option value="consolas">Consolas</option><option value="arial">Arial</option><option value="verdana">Verdana</option><option value="tahoma">Tahoma</option><option value="times">Times New Roman</option><option value="normal">Sistem yazı tipi</option></select></label>
+   <label>Yazı boyutu<span class="sbGrup"><button class="btn gri kucuk" id="sbKucult">A−</button><button class="btn gri kucuk" id="sbBuyut">A+</button></span></label>
+   <label class="yatay" title="Açık: yazdığınız kelimeler renklenir (çalışma). Kapalı: gerçek sınav gibi."><input type="checkbox" id="sbIsaret"> Kelime işaretleme</label>
+   <label class="yatay"><input type="checkbox" id="sbTakip"> Satır takibi</label>
+   <label class="yatay"><input type="checkbox" id="sbCanli"> Canlı sayaç</label>
+   <label class="yatay" title="Her tuşta klavye sesi"><input type="checkbox" id="sbSesTus"> Klavye sesi</label>
+   <label class="yatay" title="Süre işlerken kalabalık bir sınav salonundaki klavye sesleri çalar; sınav ortamına alışmak için"><input type="checkbox" id="sbSesSalon"> Sınav salonu sesi</label>
+   <label>Salon sesi düzeyi<input type="range" id="sbSesDuzey" min="10" max="100" step="5" style="width:110px"></label>
+   <span class="sbBos"></span>
+   <button class="btn gri kucuk" data-git="sinavayar">Kendi metnim ve kurallar</button>
+   <button class="btn kucuk" id="sbBitir">Bitir ve değerlendir</button>
+  </div>
+ </div>
+</section>
+<div id="sbGeri" hidden><div id="sbGeriSayi">5</div><small>Sınav başlıyor. Ellerinizi klavyeye yerleştirin.</small></div>
+
+<section id="sonucS" hidden>
+ <div class="kart">
+  <h2 id="sBaslik">Sonuç</h2>
+  <div id="sRozet"></div>
+  <div id="sKarne"></div>
+  <div class="sonuc" id="sKutular"></div>
+  <div class="satir"><button class="btn" id="sTekrar">Tekrar dene</button><button class="btn gri" id="sHata">Hatalı kelimelerimle çalış</button><button class="btn gri" data-git="ist">İstatistiğe git</button></div>
+ </div>
+ <div class="kart" id="sInceleme" hidden><h2>Metin üzerinde sonuç</h2><p class="soluk"><span class="inc"><span class="d">yeşil</span></span>: doğru · <span class="inc"><span class="y">kırmızı</span></span>: yanlış (parantez içinde sizin yazdığınız) · <span class="inc"><span class="a">turuncu</span></span>: atlanan</p><div class="inc" id="sIncMetin"></div></div>
+ <div class="kart"><h2>Klavye hata haritası</h2><p class="soluk">Kırmızı tuşlar bu denemede en çok yanlış bastığınız harflerdir. Sayı, hata adedidir.</p><div class="klavye" id="sHarita"></div></div>
+ <div class="kart"><h2>Bu denemede yanlış yazılan kelimeler</h2><div class="kelimeler" id="sKelimeler"></div></div>
+</section>
+
+<section id="sinavayar" hidden>
+ <div class="kart" hidden><h2>Sınav Simülasyonu</h2>
+  <p class="soluk">Gerçek sınavdaki gibi: 3 dakika, en az 90 doğru kelime. Metin program tarafından rastgele seçilir.</p>
+  <div class="satir">
+   <label>Metin türü<select id="sTur"><option value="karma">Karışık</option><option value="genel">Genel konulu metinler</option><option value="adliye">Adliye metinleri</option></select></label>
+   <label>Metin biçimi<select id="sBicim"><option value="resmi">Sınav biçimi (küçük harf, noktalamasız)</option><option value="normal">Normal yazım (büyük harf ve noktalama)</option></select></label>
+   <label>Yazma şekli<select id="sYazma"><option value="isaretli">Kelime işaretli (çalışma)</option><option value="serbest">İşaretsiz (gerçek sınav gibi)</option></select></label>
+  </div>
+  <div class="sonuc" id="sinavBilgi"></div>
+  <button class="btn" id="sinavBasla">Sınavı başlat</button>
+ </div>
+ <div class="kart"><h2>Kendi metninle çalış</h2>
+  <p class="soluk">Adalet Bakanlığı Personel Genel Müdürlüğü, sınavda çıkacak metinleri sınavdan önce kendi sitesinde yayımlar. Oradan aldığınız metni aşağıya yapıştırın; sınav biçiminde (3 dakika, baraj, hata oranı) çalışın. Yapıştırdığınız metin yalnızca bu bilgisayarda saklanır.</p>
+  <p class="soluk">Resmî duyurular: <a href="https://pgm.adalet.gov.tr/Home/SayfaDetay/3618-sozlesmeli-zabit-katibi-uygulama-sinav-metinleri-ve-degerlendirme-kriterleri29042022120225" target="_blank" rel="noopener">2022 sınav metinleri ve kriterler</a> · <a href="https://pgm.adalet.gov.tr/Home/SayfaDetay/3605-sozlesmeli-zabit-k-tibi-uygulama-sinavi-metinleri16042021055946" target="_blank" rel="noopener">2021 sınav metinleri</a> · <a href="https://pgm.adalet.gov.tr" target="_blank" rel="noopener">Personel Genel Müdürlüğü duyuruları</a></p>
+  <textarea id="ozelMetin" rows="7" style="width:100%;box-sizing:border-box;font:inherit;padding:10px;border-radius:10px;border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi)" placeholder="Resmî sınav metnini buraya yapıştırın"></textarea>
+  <div class="satir"><button class="btn" id="ozelBasla">Bu metinle sınavı başlat</button><span class="soluk" id="ozelSay"></span></div>
+ </div>
+ <div class="kart"><h2>Sınav nasıl değerlendirilir?</h2>
+  <ul class="soluk">
+   <li>Süre 180 saniyedir; bu sürede yanlışsız en az 90 kelime yazmak gerekir (Adalet Bakanlığı Memur Sınav, Atama ve Nakil Yönetmeliği).</li>
+   <li>Sınav metinleri küçük harfli ve noktalamasızdır; noktalama işareti eklemek 1 kelime hatası sayılır.</li>
+   <li>Yanlış kelimelerin, yazılan toplam kelimeye oranı yüzde 25'i geçerse sınav başarısız sayılır.</li>
+   <li>Toplam 22 veya daha fazla kelime atlanırsa sınav başarısız sayılır. Bu sayfada kelimeler sırayla yazıldığı için kelime atlanamaz.</li>
+   <li>Süre bittiğinde yarım kalan son kelime hata sayılmaz.</li>
+   <li>Zabıt kâtipliği, icra kâtipliği ve cezaevi kâtipliği (büro personeli) uygulamalı sınavlarında aynı program ve aynı ölçütler kullanılır: 3 dakika, en az 90 kelime, %25 hata oranı ve 22 kelime atlama sınırı.</li>
+  </ul>
+  <p class="soluk">Kaynak: Adalet Bakanlığının yayımladığı uygulamalı sınav değerlendirme kriterleri. Kurallar alımdan alıma değişebilir; başvurduğunuz ilanı mutlaka okuyun.</p>
+ </div>
+</section>
+
+<section id="hiz" hidden>
+ <div class="kart"><h2>Hız Testi</h2>
+  <div class="satir">
+   <label>Süre<select id="hizSure"><option value="60">1 dakika</option><option value="120">2 dakika</option><option value="180">3 dakika</option><option value="300">5 dakika</option></select></label>
+   <label>Kelime türü<select id="hizTur"><option value="sinavsik">Sınav metinlerinde en sık geçen kelimeler</option><option value="genel">Sık kullanılan kelimeler</option><option value="hukuk">Hukuk terimleri</option><option value="karma">Karışık</option></select></label>
+   <button class="btn" id="hizBasla">Başlat</button>
+  </div>
+ </div>
+</section>
+
+<section id="ders" hidden>
+ <div class="kart"><h2>Adım adım on parmak</h2>
+  <p class="soluk" style="margin-top:-6px">Her adımda iki yeni tuş öğrenirsiniz. Ekrandaki klavye, basacağınız tuşu ve hangi parmakla basacağınızı gösterir; klavyeye bakmanız gerekmez. Yanlış tuşa basınca ilerlemez: önce doğruluk, sonra hız. Her adım 1-2 dakika sürer.</p>
+  <div class="gunSerit" id="gunSerit"></div>
+  <div class="adimlar" id="adimlar"></div>
+ </div>
+ <div class="kart"><h2>Akıllı çalışma</h2>
+  <p class="soluk" style="margin-top:-6px">Program her tuştaki hızınızı ve hatanızı ölçer, en zayıf tuşunuzu bulur ve o tuşun bol geçtiği kelimeler verir. Açık harflerin hepsi yeşile dönünce sıradaki harf kendiliğinden açılır.</p>
+  <div class="akH" id="akHarfler"></div>
+  <p class="soluk" id="akBilgi"></p>
+  <div class="satir" style="margin:0"><button class="btn" id="akBasla">Akıllı çalışmayı başlat</button><button class="btn gri" id="akAc">Sıradaki harfi şimdi aç</button><label style="flex:0">Hedef hız<select id="akHedef"><option value="120">120 vuruş/dk</option><option value="150">150 vuruş/dk</option><option value="180">180 vuruş/dk</option><option value="240">240 vuruş/dk (sınav hızı)</option></select></label></div>
+ </div>
+ <div class="kart"><h2>Serbest dersler</h2><p class="soluk">Seçili klavye düzenine göre hazırlanır (Ayarlar). Her ders 1 dakikadır.</p><div class="izgara" id="dersler"></div></div>
+</section>
+
+<section id="harf" hidden>
+ <div class="kart">
+  <div class="satir" style="justify-content:space-between"><h2 id="hfBaslik" style="margin:0"></h2>
+   <div class="satir" style="margin:0"><button class="btn gri" id="hfYeniden">Baştan</button><button class="btn gri" id="hfCik">Derslere dön</button></div></div>
+  <div class="sayac"><div>İlerleme<b id="hfIl">%0</b></div><div>Doğruluk<b id="hfAcc">%100</b></div><div>Vuruş / dakika<b id="hfHiz">0</b></div><div>Hata<b id="hfHata">0</b></div></div>
+  <div class="okuma" id="hfIpucu"></div>
+  <div id="hfMetin"></div>
+  <div id="hfSonuc" hidden></div>
+  <div class="hfK" id="hfKlavye"></div>
+  <div class="hfEl" id="hfEller"></div>
+  <p class="soluk" style="text-align:center">Bu derslerde tuşlar klavyedeki yerine göre okunur: bilgisayarınız Q düzeninde olsa bile seçili düzeni öğrenebilirsiniz. Sınav denemelerinde ise Windows klavye düzenini seçtiğiniz düzene almalısınız.</p>
+ </div>
+</section>
+
+<section id="kelime" hidden>
+ <div class="kart"><h2>Kelime Egzersizi</h2>
+  <p class="soluk">Seçtiğiniz listeden kelimeler gelir; her kelime art arda birkaç kez yazılır. Zor kelimeleri parmağa oturtmanın en hızlı yolu budur.</p>
+  <div class="satir">
+   <label>Liste<select id="keListe"><option value="sinavsik">Sınav metinlerinde en sık geçen kelimeler</option><option value="hukuk">Hukuk terimleri</option><option value="uzun">Uzun kelimeler (9 harf ve üzeri)</option><option value="genel">Sık kullanılan kelimeler</option></select></label>
+   <label>Kelime sayısı<select id="keAdet"><option>10</option><option selected>20</option><option>30</option></select></label>
+   <label>Her kelime kaç kez<select id="keTekrar"><option>3</option><option selected>5</option><option>10</option></select></label>
+   <button class="btn" id="keBasla">Başlat</button>
+  </div>
+ </div>
+</section>
+
+<section id="oyun" hidden>
+ <div class="kart"><h2>Oyunlar</h2>
+  <div class="izgara">
+   <div class="secenek" style="cursor:default"><b>Kelime Yağmuru</b><span class="soluk">Kelimeler yukarıdan düşer. Yere değmeden yazın. Üç kelime kaçırırsanız oyun biter; her 10 kelimede hız artar.</span><p><button class="btn" id="yBasla">Oyunu başlat</button></p></div>
+   <div class="secenek" style="cursor:default"><b>Rakiple Yarış</b><span class="soluk">Sabit hızda yazan bir rakibe karşı 60 kelimelik metni önce bitirin. Yanlış kelimeyi düzeltmeden ilerleyemezsiniz.</span>
+    <div class="satir" style="margin-top:10px"><label>Rakip hızı<select id="rHiz"><option value="20">20 kelime/dk (kolay)</option><option value="30" selected>30 kelime/dk (baraj hızı)</option><option value="40">40 kelime/dk</option><option value="50">50 kelime/dk</option><option value="65">65 kelime/dk (zor)</option></select></label><button class="btn" id="rBasla">Yarışı başlat</button></div></div>
+  </div>
+ </div>
+ <div class="kart" id="yKart" hidden><h2>Kelime Yağmuru</h2>
+  <div class="sayac"><div>Puan<b id="yPuan">0</b></div><div>Can<b id="yCan">3</b></div><div>Seviye<b id="ySev">1</b></div><div>Rekor<b id="yRekor">0</b></div></div>
+  <div id="yAlan"></div>
+  <input id="yGiris" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Düşen kelimeyi yazın">
+ </div>
+</section>
+
+<section id="hata" hidden>
+ <div class="kart"><h2>Zayıf Tuşlar</h2>
+  <p class="soluk">Bütün denemelerinizde en çok yanlış bastığınız tuşlar. Sayı, toplam hata adedidir.</p>
+  <div class="klavye" id="tusHarita"></div>
+  <div class="satir" style="margin-top:12px"><button class="btn" id="tusBasla">Zayıf tuşlarımla çalış</button><button class="btn kir" id="tusSil">Tuş kayıtlarını sıfırla</button><span class="soluk" id="tusBilgi"></span></div>
+ </div>
+ <div class="kart"><h2>Hatalı Kelimeler</h2>
+  <p class="soluk">Denemelerde yanlış yazdığınız kelimeler burada birikir.</p>
+  <div class="satir">
+   <label>Her kelime kaç kez<select id="hataTekrar"><option>1</option><option selected>3</option><option>5</option><option>10</option></select></label>
+   <button class="btn" id="hataBasla">Bu kelimelerle çalış</button>
+   <button class="btn kir" id="hataSil">Listeyi temizle</button>
+  </div>
+  <div class="kelimeler" id="hataListe"></div>
+ </div>
+</section>
+
+<section id="okuma" hidden>
+ <div class="kart"><h2>Okuma Hızı Testi</h2>
+  <p class="soluk">Başlat'a basınca metin açılır. Normal hızınızda, anlayarak okuyun ve bitince "Bitirdim"e basın.</p>
+  <div class="satir"><button class="btn" id="okBasla">Başlat</button><button class="btn gri" id="okBitir" hidden>Bitirdim</button><span class="rozet ok" id="okSonuc" hidden></span></div>
+  <div id="okMetin" hidden></div>
+ </div>
+ <div class="kart"><h2>Kelime Akışı Egzersizi</h2>
+  <p class="soluk">Kelimeler ekranın ortasında tek tek, seçtiğiniz hızda akar. Gözünüzü ortada tutun, içinizden seslendirmeden takip edin. Rahat okuduğunuz hızı bulun, sonra bir üst hıza çıkın.</p>
+  <div class="satir"><label>Hız<select id="akHiz"><option value="150">150 kelime/dk</option><option value="200" selected>200 kelime/dk</option><option value="300">300 kelime/dk</option><option value="400">400 kelime/dk</option><option value="500">500 kelime/dk</option></select></label>
+   <label>Bir seferde<select id="akAdet"><option value="1">1 kelime</option><option value="2">2 kelime</option><option value="3">3 kelime</option></select></label>
+   <button class="btn" id="akBasla">Başlat</button><button class="btn gri" id="akDur">Durdur</button></div>
+  <div id="akis">hazır</div>
+ </div>
+</section>
+
+<section id="arac" hidden>
+ <div class="kart"><h2>Baraj Hedefi</h2><div class="sonuc" id="arHedef"></div><p class="soluk" id="arHedefNot"></p></div>
+ <div class="kart"><h2>Hız Çevirici</h2>
+  <div class="satir"><label>Dakikada kelime<input type="number" id="arKdk" min="1" max="300" value="30"></label></div>
+  <div class="sonuc" id="arCevir"></div>
+  <p class="soluk">Vuruş sayısı yaklaşıktır; bu sitedeki metinlerin ortalama kelime uzunluğuna göre (boşluk dahil) hesaplanır. Sınavda değerlendirme kelime üzerinden yapılır, vuruş bilgi amaçlıdır.</p>
+ </div>
+ <div class="kart"><h2>Sınava Kalan Gün</h2>
+  <div class="satir"><label>Sınav tarihiniz<input type="date" id="arTarih"></label></div>
+  <div class="sonuc" id="arGun"></div>
+ </div>
+</section>
+
+<section id="taban" hidden>
+ <div class="kart"><h2>Hangi adliye kaç kelime ve kaç KPSS ile kapattı?</h2>
+  <p class="soluk">Geçmiş alımlarda her adliyeye giren <b>son adayın</b> klavye kelime sayısı ve KPSS puanı. Kendi kelime sayınızı ve KPSS puanınızı yazın; hangi adliyelere yettiğini hemen görün.</p>
+  <div class="satir">
+   <label>Alım<select id="tbListe"></select></label>
+   <label id="tbSayiL">Kelime sayınız (3 dakikada doğru)<input type="number" id="tbSayi" min="0" max="300"></label>
+   <label id="tbKpL">KPSS puanınız<input type="number" id="tbKp" min="0" max="100" step="any"></label>
+   <label id="tbOgrL">Öğrenim düzeyiniz<select id="tbOgr"><option value="0">Ortaöğretim (lise)</option><option value="1">Önlisans</option><option value="2">Lisans</option></select></label>
+   <button class="btn gri" id="tbEnIyi">En iyi sınav sonucumu yaz</button>
+  </div>
+  <div id="tbOzet"></div>
+  <div class="okuma" id="tbOkuma"></div>
+  <div class="satir">
+   <input type="search" id="tbAra" placeholder="Adliye ara (örnek: Bakırköy)">
+   <label>Göster<select id="tbFiltre"><option value="">Bütün adliyeler</option><option value="y">Yalnızca yettiğim adliyeler</option><option value="n">Yetmediğim adliyeler</option></select></label>
+   <label>Sırala<select id="tbSira"><option value="ad">Ada göre</option><option value="artan">En düşük taban üstte</option><option value="azalan">En yüksek taban üstte</option></select></label>
+  </div>
+  <div class="kaydir" style="max-height:600px;overflow:auto;border:1px solid var(--cizgi);border-radius:10px"><table id="tbTablo"></table></div>
+  <p class="soluk" id="tbNot"></p>
+ </div>
+ <div class="kart"><h2>Bilmeniz gerekenler</h2>
+  <ul class="soluk">
+   <li><b>Bu rakamlar resmî değildir ve henüz doğrulanmamıştır.</b> Sosyal medyada paylaşılan, adayların bildirdiği sonuçlardan derlenmiştir; hatalı veya eksik olabilir. Kesin bilgi için başvurduğunuz adalet komisyonunun ilanına bakın.</li>
+   <li><b>“Kapattı” ne demek?</b> O adliyede sıralamaya giren son adayın değeri demektir. Siz o sayının üstündeyseniz geçen alımda o adliyeye girebilirdiniz.</li>
+   <li><b>Sıra:</b> önce KPSS puanıyla uygulama sınavına çağrılırsınız, sonra klavye sınavında sıralamaya girersiniz, en son sözlü sınav yapılır.</li>
+   <li>Tabanlar her alımda kontenjana ve başvuran sayısına göre değişir; gelecek alım için garanti değildir.</li>
+   <li>“≈” işaretli rakam kaynakta kısmen kapalıydı. “—” o bilginin kaynakta olmadığını gösterir.</li>
+  </ul>
+ </div>
+</section>
+
+<section id="ist" hidden>
+ <div class="kart"><h2>Gelişim</h2><div class="sonuc" id="istKutular"></div><div id="grafik"></div></div>
+ <div class="kart"><h2>Son denemeler</h2><div class="kaydir"><table id="istTablo"></table></div>
+  <p><button class="btn kir" id="istSil">Tüm geçmişi sil</button></p></div>
+</section>
+
+<section id="ayar" hidden>
+ <div class="kart"><h2>Ayarlar</h2>
+  <div class="satir">
+   <label>Klavye düzeni<select id="aKlavye"><option value="F">Türkçe F</option><option value="Q">Türkçe Q</option></select></label>
+   <label>Sınav süresi (dakika)<input type="number" id="aSure" min="1" max="10"></label>
+   <label>Baraj (doğru kelime)<input type="number" id="aBaraj" min="1" max="500"></label>
+   <label>Görünüm<select id="aTema"><option value="acik">Açık</option><option value="koyu">Koyu</option></select></label>
+   <button class="btn" id="aKaydet">Kaydet</button>
+  </div>
+  <p class="soluk">Varsayılan değerler (3 dakika, 90 kelime) Adalet Bakanlığı yönetmeliğindeki zabıt kâtipliği şartıdır. Farklı bir sınava çalışıyorsanız ilanınızdaki değerleri girin.</p>
+ </div>
+</section>
+
+
+<div class="kart" id="seoMetin"><h1>F ve Q klavye dersleri</h1><p>Adım adım on parmak bölümünde her adımda iki yeni tuş öğrenilir; ekrandaki klavye hangi tuşa hangi parmakla basılacağını gösterir. Akıllı çalışma, en yavaş ve en çok hata yaptığınız tuşu bulup o tuşun geçtiği kelimeleri verir. Serbest dersler temel sıradan başlar; üst sıra, alt sıra ve tüm harflerle devam eder. Ardından hukuk terimleri ile rakam ve sayı çalışması gelir. Klavye düzenini Ayarlar bölümünden F ya da Q olarak seçebilirsiniz.</p></div>
+</main>
+<footer>Kâtip Klavye bağımsız bir çalışma aracıdır; herhangi bir resmî kurumla bağlantısı yoktur. Özgün metinler çalışma amacıyla yazılmış kurgusal örneklerdir.<span id="cikNot" hidden> “Çıkmış” etiketli metinler Adalet Bakanlığı Personel Genel Müdürlüğünün yayımladığı uygulamalı sınav metinleridir.</span><p><a href="hakkinda-ve-iletisim.html">Hakkında ve iletişim</a> · <a href="gizlilik-ve-cerez.html">Gizlilik ve çerez politikası</a> · <a href="kullanim-sartlari.html">Kullanım şartları</a></p></footer>
+<script src="veri-metinler.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
