@@ -91,3 +91,12 @@ for _f in glob.glob(os.path.join(CIKTI,'*.html')):
     _t=open(_f,encoding='utf-8').read()
     if '@@TS@@' in _t or '@@TY@@' in _t:
         open(_f,'w',encoding='utf-8').write(_t.replace('@@TS@@',TEMAS+'\n').replace('@@TY@@',TEMAY))
+
+# onbellek kirici: js/css adreslerine icerik ozeti ekle
+import hashlib
+def _oz(ad): return hashlib.md5(open(os.path.join(CIKTI,ad),'rb').read()).hexdigest()[:8]
+_v={a:_oz(a) for a in ('app.js','app.css','veri-metinler.js')}
+for _f in glob.glob(os.path.join(CIKTI,'*.html')):
+    _t=open(_f,encoding='utf-8').read()
+    for a,h in _v.items(): _t=_t.replace('"%s"'%a,'"%s?v=%s"'%(a,h))
+    open(_f,'w',encoding='utf-8').write(_t)
