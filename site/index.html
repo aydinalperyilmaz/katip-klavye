@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="app.css">
 </head>
 <body data-site="1" data-bolum="ana" >
+<script>(function(){var k=true;try{var t=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');k=!(t.temaV&&t.tema==='acik');}catch(e){}if(k)document.body.classList.add('koyu');})();</script>
 <header><div class="ust">
  <a class="logo" href="index.html" style="text-decoration:none;color:#fff">Kâtip<span>Klavye</span></a>
  <button id="menuAc" aria-label="Menü">Menü</button>
@@ -32,6 +33,7 @@
   <a data-s="ist" href="istatistik.html">İstatistik</a>
   <a data-s="arac" href="araclar.html">Araçlar</a>
   <a data-s="ayar" href="ayarlar.html">Ayarlar</a>
+  <button id="temaDugme" class="temaD" style="margin-top:10px;opacity:.9">Aydınlık mod</button>
  </nav>
 </div></header>
 <main>
@@ -94,7 +96,7 @@
    <label>Metin seti<select id="sbSet"></select></label>
    <label class="genis">Metin<select id="sbSec"></select></label>
    <div class="sbGrup"><button class="btn gri kucuk" id="sbOnceki" title="Önceki metin">‹</button><button class="btn gri kucuk" id="sbSonraki" title="Sonraki metin">›</button><button class="btn gri kucuk" id="sbRast">Rastgele</button><button class="btn gri kucuk" id="sbYeniden" title="Kısayol: Esc">Yeniden başlat</button></div>
-   <div class="sbGrup"><button class="btn sari kucuk" id="sbSinavMod" title="5’ten geri sayar, süre kendiliğinden başlar, işaretleme ve ayarlar kapanır">Sınav modu</button><button class="btn gri kucuk" id="sbTam">Tam ekran</button></div>
+   <div class="sbGrup"><button class="btn sari kucuk" id="sbSinavMod" title="5’ten geri sayar, süre kendiliğinden başlar, işaretleme ve ayarlar kapanır">Sınav modu</button><button class="btn gri kucuk" id="sbTam">Tam ekran</button><button class="btn gri kucuk temaD" id="sbTema">Aydınlık mod</button></div>
    <span id="sbSinavBaslik"></span>
    <span class="sbBos"></span>
    <button class="btn gri kucuk" id="sbCik">Sınavdan çık</button>

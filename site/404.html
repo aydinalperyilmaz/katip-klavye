@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
+<script>(function(){var k=true;try{var t=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');k=!(t.temaV&&t.tema==='acik');}catch(e){}if(k)document.body.classList.add('koyu');})();</script>
 <header><div class="ust">
  <a class="logo" href="index.html" style="text-decoration:none;color:#fff">Kâtip<span>Klavye</span></a>
  <button id="menuAc" aria-label="Menü">Menü</button>
@@ -32,10 +33,11 @@
   <a data-s="ist" href="istatistik.html">İstatistik</a>
   <a data-s="arac" href="araclar.html">Araçlar</a>
   <a data-s="ayar" href="ayarlar.html">Ayarlar</a>
+  <button id="temaDugme" class="temaD" style="margin-top:10px;opacity:.9">Aydınlık mod</button>
  </nav>
 </div></header>
 <main><div class="kart yazi"><h1>Sayfa bulunamadı</h1><p>Aradığınız sayfa taşınmış ya da hiç olmamış olabilir. <a href="index.html">Ana sayfaya dönün</a> ya da <a href="sinav-simulasyonu.html">sınav simülasyonunu açın</a>.</p><p class="soluk">Son güncelleme: 2026-11-26</p></div></main>
 <footer>Kâtip Klavye bağımsız bir çalışma aracıdır; herhangi bir resmî kurumla bağlantısı yoktur. Özgün metinler çalışma amacıyla yazılmış kurgusal örneklerdir.<span id="cikNot" hidden> “Çıkmış” etiketli metinler Adalet Bakanlığı Personel Genel Müdürlüğünün yayımladığı uygulamalı sınav metinleridir.</span><p><a href="hakkinda-ve-iletisim.html">Hakkında ve iletişim</a> · <a href="gizlilik-ve-cerez.html">Gizlilik ve çerez politikası</a> · <a href="kullanim-sartlari.html">Kullanım şartları</a></p></footer>
-<script>try{var v=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');if(v.tema==='koyu')document.body.classList.add('koyu');}catch(e){}document.getElementById('menuAc').addEventListener('click',function(){document.querySelector('nav').classList.toggle('acik');});</script>
+<script>(function(){var A='katipKlavye_v1',b=document.getElementById('temaDugme');function yaz(){if(b)b.textContent=document.body.classList.contains('koyu')?'\u2600 Aydınlık mod':'\u263e Karanlık mod';}yaz();if(b)b.addEventListener('click',function(){var k=!document.body.classList.contains('koyu');document.body.classList.toggle('koyu',k);try{var t=JSON.parse(localStorage.getItem(A)||'{}');t.tema=k?'koyu':'acik';t.temaV=1;localStorage.setItem(A,JSON.stringify(t));}catch(e){}yaz();});})();</script><script>try{var v=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');if(v.tema==='koyu')document.body.classList.add('koyu');}catch(e){}document.getElementById('menuAc').addEventListener('click',function(){document.querySelector('nav').classList.toggle('acik');});</script>
 </body>
 </html>

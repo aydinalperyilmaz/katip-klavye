@@ -49,7 +49,7 @@ var DERSLER={
  Q:[["Temel sıra — sol el","asdf"],["Temel sıra — sağ el","jklşi"],["Temel sıra — tamamı","asdfghjklşi"],["Üst sıra","qwertyuıopğü"],["Alt sıra","zxcvbnmöç"],["Tüm harfler","qwertyuıopğüasdfghjklşizxcvbnmöç"]]
 };
 var A='katipKlavye_v1';
-var d={klavye:'F',sure:3,baraj:90,tema:'acik',bicim:'resmi',metinTur:'karma',yazma:'isaretli',sbFont:20,sbTip:'mono',sbTakip:true,sbCanli:true,sbIsaret:false,sinavTur:'zabit',sesTus:true,sesSalon:false,sesSalonDuzey:70,ozel:'',tus:{},rekor:0,sinavTarih:'',gecmis:[],hatali:{},rekorUzay:0,adim:{},akilli:{},akHedef:150,gun:{}};
+var d={klavye:'F',sure:3,baraj:90,tema:'koyu',temaV:0,bicim:'resmi',metinTur:'karma',yazma:'isaretli',sbFont:20,sbTip:'mono',sbTakip:true,sbCanli:true,sbIsaret:false,sinavTur:'zabit',sesTus:true,sesSalon:false,sesSalonDuzey:70,ozel:'',tus:{},rekor:0,sinavTarih:'',gecmis:[],hatali:{},rekorUzay:0,adim:{},akilli:{},akHedef:150,gun:{}};
 function yukle(){try{var s=localStorage.getItem(A);if(s){var v=JSON.parse(s);for(var k in d){if(v[k]!==undefined)d[k]=v[k];}}}catch(e){}}
 function kaydet(){try{localStorage.setItem(A,JSON.stringify(d));}catch(e){}}
 function $(i){return document.getElementById(i);}
@@ -212,7 +212,8 @@ function istCiz(){
  $('istTablo').innerHTML=h;
 }
 function ayarCiz(){$('aKlavye').value=d.klavye;$('aSure').value=d.sure;$('aBaraj').value=d.baraj;$('aTema').value=d.tema;}
-function temaUygula(){document.body.classList.toggle('koyu',d.tema==='koyu');}
+function temaUygula(){var k=d.tema==='koyu';document.body.classList.toggle('koyu',k);[].forEach.call(document.querySelectorAll('.temaD'),function(b){b.textContent=k?'☀ Aydınlık mod':'☾ Karanlık mod';});}
+function temaDegis(){d.tema=d.tema==='koyu'?'acik':'koyu';d.temaV=1;kaydet();temaUygula();if(!$('ayar').hidden)ayarCiz();}
 
 
 var _tum=null;
@@ -470,7 +471,7 @@ $('sHata').addEventListener('click',function(){hataCalis(3);});
 $('hataBasla').addEventListener('click',function(){hataCalis(Number($('hataTekrar').value));});
 $('hataSil').addEventListener('click',function(){if(confirm('Hatalı kelime listesi silinsin mi?')){d.hatali={};kaydet();hataCiz();}});
 $('istSil').addEventListener('click',function(){if(confirm('Tüm deneme geçmişi silinsin mi?')){d.gecmis=[];kaydet();istCiz();}});
-$('aKaydet').addEventListener('click',function(){d.klavye=$('aKlavye').value;d.sure=Math.min(10,Math.max(1,Number($('aSure').value)||3));d.baraj=Math.max(1,Number($('aBaraj').value)||90);d.tema=$('aTema').value;kaydet();temaUygula();ayarCiz();alert('Kaydedildi.');});
+$('aKaydet').addEventListener('click',function(){d.klavye=$('aKlavye').value;d.sure=Math.min(10,Math.max(1,Number($('aSure').value)||3));d.baraj=Math.max(1,Number($('aBaraj').value)||90);d.tema=$('aTema').value;d.temaV=1;kaydet();temaUygula();ayarCiz();alert('Kaydedildi.');});
 $('giris').addEventListener('paste',function(e){e.preventDefault();});
 
 /* ---- Adım adım on parmak + akıllı çalışma ---- */
@@ -641,6 +642,7 @@ $('uBasla').addEventListener('click',uBasla);$('uYeni').addEventListener('click'
 $('uDurak').addEventListener('click',function(){if(u&&!u.bitti){u.durak=!u.durak;u.son=performance.now();uHud();}this.blur();});
 $('uSes').addEventListener('click',function(){d.sesTus=!d.sesTus;kaydet();if(u)uHud();this.blur();});
 $('uTam').addEventListener('click',function(){var k=$('uKart');try{if(document.fullscreenElement)document.exitFullscreen();else if(k.requestFullscreen)k.requestFullscreen();}catch(e){}this.blur();});
-yukle();temaUygula();anaCiz();
+[].forEach.call(document.querySelectorAll('.temaD'),function(b){b.addEventListener('click',function(){temaDegis();this.blur();});});
+yukle();if(!d.temaV){d.tema='koyu';d.temaV=1;kaydet();}temaUygula();anaCiz();
 (function(){var b=document.body,bl=b.getAttribute('data-bolum');if(!bl)return;var st=b.getAttribute('data-set'),tr=b.getAttribute('data-tur');if(tr&&TURAD[tr])d.sinavTur=tr;
  if(bl==='sinav'){if(st){sbSetK=st;sbMetinAc(sbSetIc()[0]);}else sinavAc();}else goster(bl);window.scrollTo(0,0);if(document.activeElement&&document.activeElement.blur&&bl==='sinav'&&window.innerWidth<960)document.activeElement.blur();})();

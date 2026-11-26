@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
+<script>(function(){var k=true;try{var t=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');k=!(t.temaV&&t.tema==='acik');}catch(e){}if(k)document.body.classList.add('koyu');})();</script>
 <header><div class="ust">
  <a class="logo" href="index.html" style="text-decoration:none;color:#fff">Kâtip<span>Klavye</span></a>
  <button id="menuAc" aria-label="Menü">Menü</button>
@@ -32,10 +33,11 @@
   <a data-s="ist" href="istatistik.html">İstatistik</a>
   <a data-s="arac" href="araclar.html">Araçlar</a>
   <a data-s="ayar" href="ayarlar.html">Ayarlar</a>
+  <button id="temaDugme" class="temaD" style="margin-top:10px;opacity:.9">Aydınlık mod</button>
  </nav>
 </div></header>
 <main><div class="kart yazi"><h1>Gizlilik ve çerez politikası</h1><h2>Hangi veriler saklanır?</h2><p>Sitede üyelik yoktur; ad, e-posta ya da telefon gibi kişisel bilgi istenmez. Deneme sonuçlarınız, hatalı kelimeleriniz ve ayarlarınız yalnızca kullandığınız tarayıcının yerel depolama alanında tutulur. Bu veriler sunucularımıza gönderilmez ve başka cihazlarda görünmez.</p><h2>Verilerimi nasıl silerim?</h2><p>İstatistik bölümündeki “Tüm geçmişi sil” ve Zayıf Tuş ve Kelime bölümündeki temizleme düğmeleriyle silebilirsiniz. Tarayıcınızın site verilerini temizlemesi de tüm kayıtları kaldırır.</p><h2>Çerezler</h2><p>Site şu an çerez kullanmamaktadır. İleride ziyaret istatistiği ya da reklam hizmeti eklenirse bu hizmetler çerez kullanabilir; o durumda bu sayfa güncellenecek ve zorunlu olmayan çerezler için onayınız istenecektir.</p><h2>Üçüncü taraf bağlantıları</h2><p>Sitede resmî kurum sayfalarına bağlantılar bulunur. Bu sitelerin gizlilik uygulamalarından Kâtip Klavye sorumlu değildir.</p><h2>Veri sorumlusu ve iletişim</h2><p>Bosphorus Global İnşaat Turizm ve Dış Ticaret Limited Şirketi · iletisim@katipklavyesi.com</p><p class="soluk">Son güncelleme: 2026-11-26</p></div></main>
 <footer>Kâtip Klavye bağımsız bir çalışma aracıdır; herhangi bir resmî kurumla bağlantısı yoktur. Özgün metinler çalışma amacıyla yazılmış kurgusal örneklerdir.<span id="cikNot" hidden> “Çıkmış” etiketli metinler Adalet Bakanlığı Personel Genel Müdürlüğünün yayımladığı uygulamalı sınav metinleridir.</span><p><a href="hakkinda-ve-iletisim.html">Hakkında ve iletişim</a> · <a href="gizlilik-ve-cerez.html">Gizlilik ve çerez politikası</a> · <a href="kullanim-sartlari.html">Kullanım şartları</a></p></footer>
-<script>try{var v=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');if(v.tema==='koyu')document.body.classList.add('koyu');}catch(e){}document.getElementById('menuAc').addEventListener('click',function(){document.querySelector('nav').classList.toggle('acik');});</script>
+<script>(function(){var A='katipKlavye_v1',b=document.getElementById('temaDugme');function yaz(){if(b)b.textContent=document.body.classList.contains('koyu')?'\u2600 Aydınlık mod':'\u263e Karanlık mod';}yaz();if(b)b.addEventListener('click',function(){var k=!document.body.classList.contains('koyu');document.body.classList.toggle('koyu',k);try{var t=JSON.parse(localStorage.getItem(A)||'{}');t.tema=k?'koyu':'acik';t.temaV=1;localStorage.setItem(A,JSON.stringify(t));}catch(e){}yaz();});})();</script><script>try{var v=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');if(v.tema==='koyu')document.body.classList.add('koyu');}catch(e){}document.getElementById('menuAc').addEventListener('click',function(){document.querySelector('nav').classList.toggle('acik');});</script>
 </body>
 </html>

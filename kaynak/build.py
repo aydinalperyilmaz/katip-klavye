@@ -3,6 +3,8 @@ import re,json,os,sys,shutil,html,datetime
 KAYNAK='/mnt/user-data/outputs/KatipKlavye.html'; CIKTI='/home/claude/site/out'
 SITE_URL=(sys.argv[1].rstrip('/') if len(sys.argv)>1 else '')   # alan adı belli olunca verilecek
 SIRKET='Bosphorus Global İnşaat Turizm ve Dış Ticaret Limited Şirketi'; EPOSTA='iletisim@katipklavyesi.com'; ADRES='Halil Rıfat Paşa Mah. Yüzer Havuz Sk. Perpa Ticaret Merkezi B Blok No: 1/1 İç Kapı No: 2484 Şişli / İstanbul<br>İstanbul Ticaret Sicili No: 341373-5 · MERSİS No: 0180094375400001 · Şişli Vergi Dairesi'
+TEMAS="<script>(function(){var k=true;try{var t=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');k=!(t.temaV&&t.tema==='acik');}catch(e){}if(k)document.body.classList.add('koyu');})();</script>"
+TEMAY="<script>(function(){var A='katipKlavye_v1',b=document.getElementById('temaDugme');function yaz(){if(b)b.textContent=document.body.classList.contains('koyu')?'\\u2600 Aydınlık mod':'\\u263e Karanlık mod';}yaz();if(b)b.addEventListener('click',function(){var k=!document.body.classList.contains('koyu');document.body.classList.toggle('koyu',k);try{var t=JSON.parse(localStorage.getItem(A)||'{}');t.tema=k?'koyu':'acik';t.temaV=1;localStorage.setItem(A,JSON.stringify(t));}catch(e){}yaz();});})();</script>"
 ILET=EPOSTA if EPOSTA else 'yukarıdaki adrese yazılı olarak başvurabilirsiniz.'
 EK=(' · '+EPOSTA) if EPOSTA else ''
 h=open(KAYNAK,encoding='utf-8').read()
@@ -64,12 +66,12 @@ open(CIKTI+'/app.css','w',encoding='utf-8').write(css+'\n#seoMetin h1{font-size:
 open(CIKTI+'/veri-metinler.js','w',encoding='utf-8').write(veri_js); open(CIKTI+'/app.js','w',encoding='utf-8').write(app_js); open(CIKTI+'/ses.js','w',encoding='utf-8').write(ses_js)
 for dosya,bolum,attr,title,desc,h1,icerik,idx in S:
     seo='<div class="kart" id="seoMetin"><h1>%s</h1>%s</div>'%(html.escape(h1),icerik) if icerik else ''
-    sayfa=kafa(title,desc,dosya,idx)+'<body data-site="1" data-bolum="%s" %s>\n%s\n<main>%s\n%s\n</main>\n<footer>%s%s</footer>\n<script src="veri-metinler.js"></script>\n<script src="app.js"></script>\n</body>\n</html>\n'%(bolum,attr,nav_yap(bolum),main,seo,footer0,YASAL)
+    sayfa=kafa(title,desc,dosya,idx)+'<body data-site="1" data-bolum="%s" %s>\n@@TS@@%s\n<main>%s\n%s\n</main>\n<footer>%s%s</footer>\n<script src="veri-metinler.js"></script>\n<script src="app.js"></script>\n</body>\n</html>\n'%(bolum,attr,nav_yap(bolum),main,seo,footer0,YASAL)
     open(os.path.join(CIKTI,dosya),'w',encoding='utf-8').write(sayfa)
 # ---- yasal sayfalar (uygulama kodu olmadan)
 KUCUK="<script>try{var v=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');if(v.tema==='koyu')document.body.classList.add('koyu');}catch(e){}document.getElementById('menuAc').addEventListener('click',function(){document.querySelector('nav').classList.toggle('acik');});</script>"
 def yasal(dosya,title,desc,govde_html):
-    open(os.path.join(CIKTI,dosya),'w',encoding='utf-8').write(kafa(title,desc,dosya)+'<body>\n%s\n<main><div class="kart yazi">%s<p class="soluk">Son güncelleme: %s</p></div></main>\n<footer>%s%s</footer>\n%s\n</body>\n</html>\n'%(nav_yap(''),govde_html,BUGUN,footer0,YASAL,KUCUK))
+    open(os.path.join(CIKTI,dosya),'w',encoding='utf-8').write(kafa(title,desc,dosya)+'<body>\n@@TS@@%s\n<main><div class="kart yazi">%s<p class="soluk">Son güncelleme: %s</p></div></main>\n<footer>%s%s</footer>\n@@TY@@%s\n</body>\n</html>\n'%(nav_yap(''),govde_html,BUGUN,footer0,YASAL,KUCUK))
 yasal('hakkinda-ve-iletisim.html','Hakkında ve İletişim | Kâtip Klavye','Kâtip Klavye nedir, kim işletir, nasıl iletişim kurulur.',
  '<h1>Hakkında ve iletişim</h1><p>Kâtip Klavye; zabıt kâtipliği, icra kâtipliği ve cezaevi kâtipliği uygulamalı klavye sınavına hazırlananlar için hazırlanmış bağımsız bir çalışma sitesidir. Adalet Bakanlığı ya da başka bir resmî kurumla bağlantısı yoktur.</p><h2>Site sahibi</h2><p>'+SIRKET+'<br>'+ADRES+'</p><h2>İletişim</h2><p>Görüş, hata bildirimi ve içerik düzeltme talepleri için: '+ILET+'</p><h2>İçerik ve veriler</h2><p>“Çıkmış” etiketli metinler Adalet Bakanlığı Personel Genel Müdürlüğünün uygulamalı sınavlar için yayımladığı metinlerdir. Diğer metinler çalışma amacıyla yazılmış özgün metinlerdir. Adliye taban kelime sayıları ve KPSS puanları resmî değildir; adayların bildirdiği sonuçlardan derlenmiştir ve hatalı olabilir. Yanlış olduğunu düşündüğünüz bir bilgiyi yukarıdaki adrese bildirebilirsiniz.</p>')
 yasal('gizlilik-ve-cerez.html','Gizlilik ve Çerez Politikası | Kâtip Klavye','Kâtip Klavye hangi verileri saklar, çerez kullanır mı.',
@@ -83,3 +85,9 @@ if SITE_URL:
     open(CIKTI+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>%s/%s</loc><lastmod>%s</lastmod></url>\n'%(SITE_URL,'' if d=='index.html' else d,BUGUN) for d in urls)+'</urlset>\n')
 print(len(os.listdir(CIKTI)),'dosya'); 
 for f in sorted(os.listdir(CIKTI)): print('  %7d %s'%(os.path.getsize(os.path.join(CIKTI,f)),f))
+
+import glob
+for _f in glob.glob(os.path.join(CIKTI,'*.html')):
+    _t=open(_f,encoding='utf-8').read()
+    if '@@TS@@' in _t or '@@TY@@' in _t:
+        open(_f,'w',encoding='utf-8').write(_t.replace('@@TS@@',TEMAS+'\n').replace('@@TY@@',TEMAY))
