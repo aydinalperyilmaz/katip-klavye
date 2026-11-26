@@ -2,7 +2,7 @@
 import re,json,os,sys,shutil,html,datetime
 KAYNAK='/mnt/user-data/outputs/KatipKlavye.html'; CIKTI='/home/claude/site/out'
 SITE_URL=(sys.argv[1].rstrip('/') if len(sys.argv)>1 else '')   # alan adı belli olunca verilecek
-SIRKET='Bosphorus Global İnşaat Turizm ve Dış Ticaret Limited Şirketi'; EPOSTA=''; ADRES='Halil Rıfat Paşa Mah. Yüzer Havuz Sk. Perpa Ticaret Merkezi B Blok No: 1/1 İç Kapı No: 2484 Şişli / İstanbul<br>İstanbul Ticaret Sicili No: 341373-5 · MERSİS No: 0180094375400001 · Şişli Vergi Dairesi'
+SIRKET='Bosphorus Global İnşaat Turizm ve Dış Ticaret Limited Şirketi'; EPOSTA='iletisim@katipklavyesi.com'; ADRES='Halil Rıfat Paşa Mah. Yüzer Havuz Sk. Perpa Ticaret Merkezi B Blok No: 1/1 İç Kapı No: 2484 Şişli / İstanbul<br>İstanbul Ticaret Sicili No: 341373-5 · MERSİS No: 0180094375400001 · Şişli Vergi Dairesi'
 ILET=EPOSTA if EPOSTA else 'yukarıdaki adrese yazılı olarak başvurabilirsiniz.'
 EK=(' · '+EPOSTA) if EPOSTA else ''
 h=open(KAYNAK,encoding='utf-8').read()
