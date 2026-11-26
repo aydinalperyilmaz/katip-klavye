@@ -69,7 +69,7 @@ function goster(id){
  var sm=$('seoMetin');if(sm){var sbol=document.body.getAttribute('data-bolum');sm.hidden=id!==(sbol==='sinav'?'serbest':sbol);}
  window.scrollTo(0,0);
 }
-function maasCiz(){var c=$('maasCerceve');if(c&&!c.getAttribute('src'))c.src='https://maas.katipklavyesi.com/?gom=1&tema='+(document.body.classList.contains('koyu')?'koyu':'acik');}
+var maasTema='';function maasCiz(){var c=$('maasCerceve'),t=document.body.classList.contains('koyu')?'koyu':'acik';if(c&&t!==maasTema){maasTema=t;c.src='https://maas.katipklavyesi.com/?gom=1&tema='+t;}}
 window.addEventListener('message',function(e){if(e.origin!=='https://maas.katipklavyesi.com'||!e.data||typeof e.data.mneH!=='number')return;var c=$('maasCerceve');if(c)c.style.height=Math.max(600,Math.min(20000,e.data.mneH))+'px';});
 function durdur(){if(zamanlayici){clearInterval(zamanlayici);zamanlayici=null;}}
 function turAd(t){return t==='genel'?'Genel':(t==='adliye'?'Adliye':'Çıkmış');}
@@ -216,7 +216,7 @@ function istCiz(){
 }
 function ayarCiz(){$('aKlavye').value=d.klavye;$('aSure').value=d.sure;$('aBaraj').value=d.baraj;$('aTema').value=d.tema;}
 function temaUygula(){var k=d.tema==='koyu';document.body.classList.toggle('koyu',k);[].forEach.call(document.querySelectorAll('.temaD'),function(b){b.textContent=k?'☀ Aydınlık mod':'☾ Karanlık mod';});}
-function temaDegis(){d.tema=d.tema==='koyu'?'acik':'koyu';d.temaV=1;kaydet();temaUygula();if(!$('ayar').hidden)ayarCiz();}
+function temaDegis(){d.tema=d.tema==='koyu'?'acik':'koyu';d.temaV=1;kaydet();temaUygula();if($('maas')&&!$('maas').hidden)maasCiz();if(!$('ayar').hidden)ayarCiz();}
 
 
 var _tum=null;
