@@ -53,7 +53,7 @@ ekle('kelime-egzersizi.html','kelime','Kelime Egzersizi: Sınav Metinlerinde En 
 ekle('zayif-tus-ve-kelime.html','hata','Zayıf Tuş ve Hatalı Kelime Çalışması | Kâtip Klavye','En çok hata yaptığınız tuşları ve kelimeleri görün; yalnızca onlarla çalışın.','Zayıf tuş ve kelime çalışması','<p>Her denemede yanlış bastığınız tuşlar ve yanlış yazdığınız kelimeler burada birikir. Klavye haritası hangi harflerde zorlandığınızı gösterir; tek düğmeyle yalnızca o harfleri içeren kelimelerle çalışırsınız.</p>')
 ekle('hizli-okuma.html','okuma','Hızlı Okuma Testi ve Kelime Akışı Egzersizi | Kâtip Klavye','Okuma hızınızı ölçün ve kelime akışı egzersiziyle geliştirin. Metni hızlı okuyan, hızlı yazar.','Hızlı okuma','<p>Klavye sınavında metni gözle takip edip yazarsınız; okuma hızınız yazma hızınızı doğrudan etkiler. Okuma hızı testi dakikada kaç kelime okuduğunuzu ölçer, kelime akışı egzersizi gözünüzü hızlı okumaya alıştırır.</p>')
 ekle('klavye-oyunlari.html','oyun','Klavye Oyunları: Kelime Yağmuru ve Rakiple Yarış | Kâtip Klavye','Oynarken hızlanın: düşen kelimeleri yazın ya da seçtiğiniz hızdaki rakibe karşı yarışın.','Klavye oyunları','<p>Kelime Yağmuru’nda kelimeler yukarıdan düşer; yere değmeden yazmanız gerekir. Rakiple Yarış’ta sabit hızda yazan bir rakibe karşı 60 kelimelik metni önce bitirmeye çalışırsınız.</p>')
-ekle('adliye-taban-puanlari.html','taban','Hangi Adliye Kaç Kelime ve Kaç KPSS ile Kapattı? | Kâtip Klavye','Zabıt ve icra kâtipliği alımlarında adliyelere göre klavye taban kelime sayıları ve KPSS taban puanları. Kelime sayınızı yazın, nerelere yettiğini görün.','Hangi adliye kaç kelime ve kaç KPSS ile kapattı?','<p>Bu tablo, geçmiş alımlarda her adliyeye giren son adayın klavye kelime sayısını ve KPSS puanını gösterir. Rakamlar resmî değildir; adayların bildirdiği sonuçlardan derlenmiştir. Kesin bilgi için başvurduğunuz adalet komisyonunun ilanına bakın.</p>')
+ekle('adliye-taban-puanlari.html','taban','Hangi Adliye Kaç Kelime ve Kaç KPSS ile Kapattı? | Kâtip Klavye','Zabıt ve icra kâtipliği alımlarında adliyelere göre klavye taban kelime sayıları ve KPSS taban puanları. Kelime sayınızı yazın, nerelere yettiğini görün.','Hangi adliye kaç kelime ve kaç KPSS ile kapattı?','<p>Bu tablo, geçmiş alımlarda her adliyeye giren son adayın klavye kelime sayısını ve KPSS puanını gösterir. Rakamlar resmî değildir; adayların bildirdiği sonuçlardan derlenmiştir. Kesin bilgi için başvurduğunuz adalet komisyonunun ilanına bakın.</p><p>Her adliyenin kendi sayfası da var: <a href="adliyeler.html">adliyelere göre taban kelime ve KPSS puanları</a>.</p>')
 ekle('araclar.html','arac','Kâtiplik Sınavı Araçları: Baraj Hedefi, Hız Çevirici, Kalan Gün | Kâtip Klavye','Baraja ne kadar kaldığını görün, kelime hızını vuruşa çevirin, sınava kalan günü sayın.','Araçlar','<p>Baraj hedefi son sınav denemelerinizin ortalamasını barajla karşılaştırır. Hız çevirici dakikadaki kelime sayısını 3 dakikalık toplama ve yaklaşık vuruşa çevirir.</p>')
 ekle('istatistik.html','ist','İstatistik | Kâtip Klavye','Deneme geçmişiniz ve gelişim grafiğiniz.','İstatistik','',idx=False)
 ekle('ayarlar.html','ayar','Ayarlar | Kâtip Klavye','Klavye düzeni, süre, baraj ve görünüm ayarları.','Ayarlar','',idx=False)
@@ -79,9 +79,94 @@ yasal('gizlilik-ve-cerez.html','Gizlilik ve Çerez Politikası | Kâtip Klavye',
 yasal('kullanim-sartlari.html','Kullanım Şartları | Kâtip Klavye','Kâtip Klavye kullanım şartları ve sorumluluk sınırları.',
  '<h1>Kullanım şartları</h1><h2>Hizmetin niteliği</h2><p>Kâtip Klavye bir çalışma aracıdır. Buradaki deneme sonuçları gerçek sınav sonucunuzu garanti etmez. Puanlama, Bakanlığın yayımladığı değerlendirme kriterleri esas alınarak hazırlanmıştır; ancak resmî sınav programıyla birebir aynı sonucu vereceği taahhüt edilmez.</p><h2>Bilgilerin doğruluğu</h2><p>Sınav kuralları, süre ve baraj bilgileri resmî ilan ve yönetmeliklerden derlenmiştir ve değişebilir. Adliye taban kelime sayıları ve KPSS puanları resmî değildir. Başvuru ve tercih kararlarınızı vermeden önce ilgili adalet komisyonunun ve Bakanlığın güncel ilanlarını esas alın.</p><h2>Sorumluluk</h2><p>Site “olduğu gibi” sunulur. Sitedeki bilgilere dayanarak verilen kararlardan doğabilecek sonuçlardan site sahibi sorumlu tutulamaz.</p><h2>Kullanım</h2><p>Siteyi kişisel çalışma amacıyla kullanabilirsiniz. Sitenin işleyişini bozacak, otomatik yollarla içerik toplayacak ya da başkalarının kullanımını engelleyecek davranışlar yasaktır.</p><h2>Değişiklikler</h2><p>Bu şartlar güncellenebilir; güncel metin bu sayfada yayımlanır.</p><h2>İletişim</h2><p>'+SIRKET+EK+'</p>')
 yasal('404.html','Sayfa bulunamadı | Kâtip Klavye','Aradığınız sayfa bulunamadı.','<h1>Sayfa bulunamadı</h1><p>Aradığınız sayfa taşınmış ya da hiç olmamış olabilir. <a href="index.html">Ana sayfaya dönün</a> ya da <a href="sinav-simulasyonu.html">sınav simülasyonunu açın</a>.</p>')
+
+# ---- adliye sayfalari (taban verilerinden otomatik)
+def _dizi(ad):
+    i=app_js.index(ad); j=app_js.index('[[',i); d=0
+    for k in range(j,len(app_js)):
+        c=app_js[k]
+        if c=='[': d+=1
+        elif c==']':
+            d-=1
+            if d==0: return json.loads(app_js[j:k+1])
+T26=_dizi('var TABAN26='); _tb=app_js[app_js.index('var TB={'):]
+def _tbl(k): 
+    global _tb
+    i=_tb.index('\n'+k+':{'); j=_tb.index('[[',i); d=0
+    for q in range(j,len(_tb)):
+        c=_tb[q]
+        if c=='[': d+=1
+        elif c==']':
+            d-=1
+            if d==0: return json.loads(_tb[j:q+1])
+K25=_tbl('k25'); KP26=_tbl('kp26'); MOD=_tbl('mod'); I21=_tbl('i21')
+def slug(s):
+    s=s.replace('İ','i').replace('I','i').lower()
+    for a,c in zip('çğıöşüâîû','cgiosuaiu'): s=s.replace(a,c)
+    return re.sub(r'[^a-z0-9]+','-',s).strip('-')
+def temel(ad):
+    ad=ad.replace('Afyonkarahisar','Afyon').replace('Doğubeyazıt','Doğubayazıt')
+    m=re.match(r'^(.*?)\s*\((Genel|Öncelikli)\)$',ad)
+    return (m.group(1),m.group(2)) if m else (ad,'')
+A={}
+def al(ad):
+    return A.setdefault(ad,{'ad':ad,'k26':None,'kp26':None,'k25':[],'mod':None,'i21':None})
+for x in T26: al(temel(x[0])[0])['k26']=(x[1],x[2])
+for x in KP26: al(temel(x[0])[0])['kp26']=x[1:4]
+for x in K25:
+    a,tur=temel(x[0]); al(a)['k25'].append({'tur':tur or 'Genel','kon':x[1],'kel':x[2],'kp':x[3:6],'yak':x[6]})
+for x in MOD:
+    if x[0] in A: A[x[0]]['mod']=x[1]
+for x in I21:
+    if x[0] in A: A[x[0]]['i21']=(x[1],x[3])
+def tamad(ad):
+    ad='Afyonkarahisar' if ad=='Afyon' else ad
+    return ad[:-4]+' Bölge Adliye Mahkemesi' if ad.endswith(' BAM') else (ad[:-4]+' Bölge İdare Mahkemesi' if ad.endswith(' BİM') else ad+' Adliyesi')
+def vg(v): return '—' if v is None else ('%.2f'%v).replace('.',',')
+def dosya_ad(ad):
+    ad='Afyonkarahisar' if ad=='Afyon' else ad
+    return (slug(ad[:-4])+'-bolge-adliye-mahkemesi' if ad.endswith(' BAM') else slug(ad)+'-adliyesi')+'-zabit-katipligi-taban-puani.html'
+ADL=sorted(A.values(),key=lambda r:slug(r['ad']))
+UYARI='<p class="soluk"><b>Bu rakamlar resmî değildir.</b> Adayların ve sınav hazırlık hesaplarının paylaştığı sonuçlardan derlenmiştir, hatalı ya da eksik olabilir. Başvuru kararınızı vermeden önce ilgili adalet komisyonunun kendi ilanına bakın. Yanlış gördüğünüz bir rakamı '+(EPOSTA or 'bize')+' adresine bildirebilirsiniz.</p>'
+ADL_URL=[]
+for n,r in enumerate(ADL):
+    ad=r['ad']; T=tamad(ad); cum=[]; sat=''
+    if r['k26']:
+        cum.append('2026 alımında %s <b>%s%d kelime</b> ile kapattı'%(T,'yaklaşık ' if r['k26'][1] else '',r['k26'][0]))
+    kp=r['kp26']
+    if r['k26'] or kp:
+        sat+='<tr><td><b>2026</b></td><td>—</td><td class="buyuk">%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%((('≈ ' if r['k26'][1] else '')+str(r['k26'][0])+' <small>kelime</small>') if r['k26'] else '—',vg(kp[0]) if kp else '—',vg(kp[1]) if kp else '—',vg(kp[2]) if kp else '—')
+    for z in r['k25']:
+        sat+='<tr><td><b>2025</b>%s</td><td>%s</td><td class="buyuk">%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%(' <small>(öncelikli)</small>' if z['tur']=='Öncelikli' else '',('%d kişi'%z['kon']) if z['kon'] else '—',(('≈ ' if z['yak'] else '')+'%d <small>kelime</small>'%z['kel']) if z['kel'] else '—',vg(z['kp'][0]),vg(z['kp'][1]),vg(z['kp'][2]))
+    g25=[z for z in r['k25'] if z['tur']=='Genel' and z['kel']]
+    if g25: cum.append('2025 alımında <b>%d kelime</b> ile kapatmıştı'%g25[0]['kel'])
+    if r['k26'] and g25:
+        f=r['k26'][0]-g25[0]['kel']; cum.append('yani taban bir yılda %s'%('%d kelime yükseldi'%f if f>0 else ('%d kelime düştü'%-f if f<0 else 'değişmedi')))
+    en=min([x for x in [r['k26'][0] if r['k26'] else None]+[z['kel'] for z in r['k25'] if z['tur']=='Genel'] if x] or [0])
+    son=r['k26'][0] if r['k26'] else (g25[0]['kel'] if g25 else 0)
+    giris='<p>'+('; '.join(cum)+'.' if cum else T+' için elimizde klavye taban kelime sayısı yok.')+' Taban kelime, o adliyeye yerleşen son adayın uygulamalı sınavda 3 dakikada yazdığı doğru kelime sayısıdır. Baraj her yerde 90 kelimedir; kontenjan az, başvuru çok olduğunda taban barajın üstüne çıkar.</p>'
+    ek=''
+    if r['mod']: ek+='<h2>Sınavda kullanılan klavye</h2><p>%s uygulamalı sınavında kullanıldığı bildirilen klavye: <b>%s</b>. Sınavdaki klavyeye benzer bir klavyeyle çalışmak tuş hissine alışmanızı sağlar.</p>'%(T,html.escape(r['mod']))
+    if r['i21']: ek+='<h2>İcra kâtipliği</h2><p>2021 icra kâtipliği alımında %s için bildirilen taban: <b>%d kelime</b>, KPSS %s.</p>'%(ad,r['i21'][0],vg(r['i21'][1]))
+    hesap=''
+    if son:
+        hesap='<h2>Kelime sayınız yetiyor mu?</h2><div class="satir"><label>3 dakikada yazdığınız doğru kelime<input type="number" id="adK" min="0" max="400" placeholder="örnek: %d"></label></div><p id="adS" class="okuma">Kelime sayınızı yazın; %s son tabanıyla (%d kelime) karşılaştıralım.</p><script>document.getElementById("adK").addEventListener("input",function(){var n=Number(this.value)||0,t=%d,s=document.getElementById("adS");if(!n){s.textContent="Kelime sayınızı yazın.";return;}s.innerHTML=n>=t?"<b>Yetiyor.</b> Son tabanın "+(n-t)+" kelime üstündesiniz. Taban her alımda değişir; payınız ne kadar genişse o kadar iyi.":"<b>"+(t-n)+" kelime eksik.</b> Son taban "+t+" kelime. Sınav simülasyonunda bu hedefle çalışın."+(n<90?" Ayrıca 90 kelimelik barajın da altındasınız.":"");});</script>'%(son,T,son,son)
+    onc=ADL[n-1]; snr=ADL[(n+1)%len(ADL)]
+    govde='<h1>%s zabıt kâtipliği taban kelime ve KPSS puanı</h1>%s'%(T,giris)
+    if sat: govde+='<div style="overflow-x:auto"><table><tr><th>Alım</th><th>Kontenjan</th><th>Kaç kelime ile kapattı</th><th>KPSS lise</th><th>KPSS önlisans</th><th>KPSS lisans</th></tr>%s</table></div>'%sat
+    govde+=UYARI+hesap+ek
+    govde+='<h2>Bu adliyeye hazırlanın</h2><p><a class="btn" href="sinav-simulasyonu.html">Sınav simülasyonunu başlat</a> <a class="btn gri" href="zabit-katipligi-2026-sinav-metinleri.html">Çıkmış sınav metinleri</a> <a class="btn gri" href="klavye-dersleri.html">Klavye dersleri</a></p>'
+    govde+='<p class="soluk">Diğer adliyeler: <a href="%s">%s</a> · <a href="%s">%s</a> · <a href="adliyeler.html">Bütün adliyeler</a> · <a href="adliye-taban-puanlari.html">Karşılaştırmalı tablo</a></p>'%(dosya_ad(onc['ad']),html.escape(tamad(onc['ad'])),dosya_ad(snr['ad']),html.escape(tamad(snr['ad'])))
+    bas='%s Zabıt Kâtipliği Taban Kelime ve KPSS Puanı | Kâtip Klavye'%T
+    des='%s zabıt kâtipliği alımında kaç kelime ve kaç KPSS ile kapattı? %s Kelime sayınızı yazın, yetip yetmediğini görün.'%(T,re.sub('<[^>]+>','','; '.join(cum[:2]))+'.' if cum else '')
+    yasal(dosya_ad(ad),bas,des[:300],govde); ADL_URL.append(dosya_ad(ad))
+_li=''.join('<li><a href="%s">%s</a>%s</li>'%(dosya_ad(r['ad']),html.escape(tamad(r['ad'])),(' — %s%d kelime'%('2026: ' if r['k26'] else '2025: ',r['k26'][0] if r['k26'] else [z['kel'] for z in r['k25'] if z['kel']][0])) if (r['k26'] or [z for z in r['k25'] if z['kel']]) else '') for r in ADL)
+yasal('adliyeler.html','Adliyelere Göre Zabıt Kâtipliği Taban Kelime ve KPSS Puanları | Kâtip Klavye','%d adliye ve bölge adliye mahkemesi için zabıt kâtipliği klavye taban kelime sayıları ve KPSS taban puanları. Adliyenizi seçin.'%len(ADL),
+ '<h1>Adliyelere göre zabıt kâtipliği taban kelime ve KPSS puanları</h1><p>Aşağıda %d adliye ve bölge adliye mahkemesinin sayfası var. Her sayfada o adliyenin son alımlardaki taban kelime sayısı, KPSS taban puanları, kontenjanı ve sınavda kullanılan klavye bilgisi yer alır. Hepsini tek tabloda karşılaştırmak için <a href="adliye-taban-puanlari.html">karşılaştırmalı tabloyu</a> kullanın.</p>%s<ul style="columns:2;padding-left:18px;line-height:1.9">%s</ul>'%(len(ADL),UYARI,_li))
+ADL_URL.append('adliyeler.html')
 open(CIKTI+'/robots.txt','w').write('User-agent: *\nAllow: /\n'+('Sitemap: %s/sitemap.xml\n'%SITE_URL if SITE_URL else ''))
 if SITE_URL:
-    urls=[d for d,_,_,_,_,_,_,i in S if i]+['hakkinda-ve-iletisim.html','gizlilik-ve-cerez.html','kullanim-sartlari.html']
+    urls=[d for d,_,_,_,_,_,_,i in S if i]+['hakkinda-ve-iletisim.html','gizlilik-ve-cerez.html','kullanim-sartlari.html']+ADL_URL
     open(CIKTI+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>%s/%s</loc><lastmod>%s</lastmod></url>\n'%(SITE_URL,'' if d=='index.html' else d,BUGUN) for d in urls)+'</urlset>\n')
 print(len(os.listdir(CIKTI)),'dosya'); 
 for f in sorted(os.listdir(CIKTI)): print('  %7d %s'%(os.path.getsize(os.path.join(CIKTI,f)),f))
