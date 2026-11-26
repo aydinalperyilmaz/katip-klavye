@@ -168,6 +168,7 @@ ADL_URL.append('adliyeler.html')
 # ---- memur maaşı sayfası (maas.katipklavyesi.com gömülü)
 MAAS_GOVDE=('<h1>Memur maaşın ne eder?</h1><p>Maaşını yaz; kaç gram altın, kaç dolar ettiğini, Ocak\'tan beri enflasyon karşısında ne kadar eridiğini ve 2027 zammının neyi karşılayacağını gör. '
  'Hazır düğmelerde en düşük memur maaşı (aile yardımı dahil, Temmuz 2026: 70.224 TL), en düşük emekli aylığı ve asgari ücret var; kendi maaşını da yazabilirsin. Yazdığın rakam yalnızca kendi tarayıcında kalır.</p>'
+ '<p><a class="btn" href="https://maas.katipklavyesi.com/?yukle=1" target="_blank" rel="noopener">Uygulamayı telefona indir</a> <a class="btn gri" href="https://maas.katipklavyesi.com/" target="_blank" rel="noopener">Tam ekran aç</a></p>'
  '<p class="soluk">Asgari ücret: Çalışma ve Sosyal Güvenlik Bakanlığı · Enflasyon: TÜİK · Altın ve dolar: piyasa ortalamaları. Sonuçlar yaklaşıktır. <a href="https://maas.katipklavyesi.com/" target="_blank" rel="noopener">Hesaplayıcıyı tam ekran aç</a></p>')
 MAAS_CER=('<iframe id="maasCerceve" title="Maaşın Ne Eder hesaplayıcısı" style="width:100%;height:1400px;border:0;border-radius:14px;display:block;margin-top:16px;background:transparent"></iframe>'
  "<script>(function(){var c=document.getElementById('maasCerceve');c.src='https://maas.katipklavyesi.com/?gom=1&tema='+(document.body.classList.contains('koyu')?'koyu':'acik');"
