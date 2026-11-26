@@ -49,7 +49,7 @@ var DERSLER={
  Q:[["Temel sıra — sol el","asdf"],["Temel sıra — sağ el","jklşi"],["Temel sıra — tamamı","asdfghjklşi"],["Üst sıra","qwertyuıopğü"],["Alt sıra","zxcvbnmöç"],["Tüm harfler","qwertyuıopğüasdfghjklşizxcvbnmöç"]]
 };
 var A='katipKlavye_v1';
-var d={klavye:'F',sure:3,baraj:90,tema:'acik',bicim:'resmi',metinTur:'karma',yazma:'isaretli',sbFont:20,sbTip:'mono',sbTakip:true,sbCanli:true,sbIsaret:false,sinavTur:'zabit',sesTus:true,sesSalon:false,sesSalonDuzey:70,ozel:'',tus:{},rekor:0,sinavTarih:'',gecmis:[],hatali:{},adim:{},akilli:{},akHedef:150,gun:{}};
+var d={klavye:'F',sure:3,baraj:90,tema:'acik',bicim:'resmi',metinTur:'karma',yazma:'isaretli',sbFont:20,sbTip:'mono',sbTakip:true,sbCanli:true,sbIsaret:false,sinavTur:'zabit',sesTus:true,sesSalon:false,sesSalonDuzey:70,ozel:'',tus:{},rekor:0,sinavTarih:'',gecmis:[],hatali:{},rekorUzay:0,adim:{},akilli:{},akHedef:150,gun:{}};
 function yukle(){try{var s=localStorage.getItem(A);if(s){var v=JSON.parse(s);for(var k in d){if(v[k]!==undefined)d[k]=v[k];}}}catch(e){}}
 function kaydet(){try{localStorage.setItem(A,JSON.stringify(d));}catch(e){}}
 function $(i){return document.getElementById(i);}
@@ -63,7 +63,7 @@ function goster(id){
  if(id==='sinav'){sinavAc();return;}
  [].forEach.call(document.querySelectorAll('main>section'),function(s){s.hidden=s.id!==id;});
  [].forEach.call(document.querySelectorAll('nav [data-s]'),function(b){var ds=b.getAttribute('data-s');b.classList.toggle('on',ds===id||(ds==='ders'&&id==='harf')||(ds==='sinav'&&(id==='serbest'||id==='sinavayar')));});
- if(id!=='calis')durdur(); if(id!=='harf')hfDur(); if(id!=='serbest'){sbDur();document.body.classList.remove('sinavmod');} document.querySelector('nav').classList.remove('acik'); if(id!=='oyun')yDur(); if(id!=='okuma')akDur(); if(id==='arac')aracCiz(); if(id==='taban')tabanCiz(true);
+ if(id!=='calis')durdur(); if(id!=='harf')hfDur(); if(id!=='serbest'){sbDur();document.body.classList.remove('sinavmod');} document.querySelector('nav').classList.remove('acik'); if(id!=='oyun'){yDur();uDur();} if(id!=='okuma')akDur(); if(id==='arac')aracCiz(); if(id==='taban')tabanCiz(true);
  if(id==='ana')anaCiz(); if(id==='sinavayar')sinavCiz(); if(id==='ders'){dersCiz();adimCiz();} if(id==='hata')hataCiz(); if(id==='ist')istCiz(); if(id==='ayar')ayarCiz();
  var sm=$('seoMetin');if(sm){var sbol=document.body.getAttribute('data-bolum');sm.hidden=id!==(sbol==='sinav'?'serbest':sbol);}
  window.scrollTo(0,0);
@@ -558,6 +558,89 @@ $('akHedef').addEventListener('change',function(){d.akHedef=Number(this.value)||
 $('hfCik').addEventListener('click',function(){goster('ders');});
 $('hfYeniden').addEventListener('click',function(){if(hf)hfBasla(hf.ayar);});
 $('hfSonuc').addEventListener('click',function(e){var id=e.target.id;if(id==='hfIleri'&&hf.sonra)hf.sonra();else if(id==='hfTekrar')hfBasla(hf.ayar);else if(id==='hfAkilli')akBaslat();});
+
+/* ---- Uzay Savunması ---- */
+var u=null,uArka=null,UW=1200,UH=480,UBAR=250;
+function uArkaCiz(){var c=document.createElement('canvas');c.width=UW;c.height=UH;var g=c.getContext('2d'),r,i;
+ r=g.createLinearGradient(0,0,UW,UH);r.addColorStop(0,'#0b1030');r.addColorStop(0.5,'#080a1c');r.addColorStop(1,'#120a26');g.fillStyle=r;g.fillRect(0,0,UW,UH);
+ [[520,170,260,'rgba(120,60,190,0.32)'],[760,330,300,'rgba(70,50,170,0.26)'],[330,80,180,'rgba(40,80,190,0.20)']].forEach(function(n){r=g.createRadialGradient(n[0],n[1],0,n[0],n[1],n[2]);r.addColorStop(0,n[3]);r.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=r;g.fillRect(0,0,UW,UH);});
+ for(i=0;i<230;i++){var x=Math.random()*UW,y=Math.random()*UH,b=Math.random();g.fillStyle='rgba(255,'+(225+Math.floor(Math.random()*30))+','+(200+Math.floor(Math.random()*55))+','+(0.25+b*0.7)+')';g.fillRect(x,y,b>0.93?2.2:1.2,b>0.93?2.2:1.2);
+  if(b>0.965){g.strokeStyle='rgba(255,235,210,0.5)';g.lineWidth=1;g.beginPath();g.moveTo(x-6,y+1);g.lineTo(x+8,y+1);g.moveTo(x+1,y-6);g.lineTo(x+1,y+8);g.stroke();}}
+ var px=1010,py=235,pr=170;g.save();g.translate(px,py);g.rotate(-0.28);g.strokeStyle='rgba(150,160,220,0.28)';g.lineWidth=16;g.beginPath();g.ellipse(0,0,pr*1.65,pr*0.36,0,Math.PI,Math.PI*2);g.stroke();g.restore();
+ r=g.createRadialGradient(px-60,py-70,20,px,py,pr);r.addColorStop(0,'#7f95cf');r.addColorStop(0.6,'#4a5c9c');r.addColorStop(1,'#1c2450');g.fillStyle=r;g.beginPath();g.arc(px,py,pr,0,Math.PI*2);g.fill();
+ g.save();g.beginPath();g.arc(px,py,pr,0,Math.PI*2);g.clip();for(i=-6;i<7;i++){g.fillStyle='rgba(255,255,255,'+(i%2?0.035:0.06)+')';g.fillRect(px-pr,py+i*26,pr*2,9);}g.restore();
+ g.save();g.translate(px,py);g.rotate(-0.28);g.strokeStyle='rgba(175,185,240,0.42)';g.lineWidth=16;g.beginPath();g.ellipse(0,0,pr*1.65,pr*0.36,0,0,Math.PI);g.stroke();g.strokeStyle='rgba(120,130,200,0.3)';g.lineWidth=5;g.beginPath();g.ellipse(0,0,pr*1.9,pr*0.43,0,0,Math.PI);g.stroke();g.restore();
+ r=g.createLinearGradient(0,0,UBAR,0);r.addColorStop(0,'rgba(40,70,170,0.30)');r.addColorStop(1,'rgba(40,70,170,0)');g.fillStyle=r;g.fillRect(0,0,UBAR,UH);return c;}
+function uHavuz(){var mn=3,mx=Math.min(10,4+Math.floor(u.dalga/2));return u.tum.filter(function(k){return k.length>=mn&&k.length<=mx;});}
+function uKelime(){var h=uHavuz(),dolu={},k,i;u.gemi.forEach(function(x){dolu[x.k.charAt(0)]=1;});for(i=0;i<25;i++){k=h[Math.floor(Math.random()*h.length)];if(!dolu[k.charAt(0)])break;}return k;}
+function uGemiEkle(boss){var ser=[0,1,2,3,4].sort(function(){return Math.random()-0.5;}),sy=ser[0];for(var i=0;i<5;i++){var bos=true;u.gemi.forEach(function(x){if(x.s===ser[i]&&x.x>UW-260)bos=false;});if(bos){sy=ser[i];break;}}
+ var T=Math.max(6.5,15-u.dalga*0.45),g={k:'',i:0,x:UW+40,y:72+sy*84,s:sy,v:(UW-UBAR)/T,boss:!!boss,kalan:0};
+ if(boss){g.kalan=3+Math.floor(u.dalga/5);g.v=(UW-UBAR)/34;g.y=UH/2;g.s=9;var uz=u.tum.filter(function(k){return k.length>=8&&k.length<=13;});g.liste=[];for(i=0;i<g.kalan;i++)g.liste.push(uz[Math.floor(Math.random()*uz.length)]);g.k=g.liste.shift();}
+ else g.k=uKelime();u.gemi.push(g);}
+function uDalgaKur(){u.boss=u.dalga%5===0;u.sira=Math.min(26,5+u.dalga*2);if(u.boss)u.sira=Math.ceil(u.sira/2);u.bossGeldi=false;u.dogan=1.6;u.mesaj={t:(u.boss?'DEV GEMİ YAKLAŞIYOR — ':'')+'DALGA '+u.dalga,s:2.2};uHud();}
+function uHud(){$('uDalga').textContent=u.dalga;$('uPuan').textContent=u.puan;$('uKalkan').textContent=u.kalkan+' / 5';$('uRekor').textContent=d.rekorUzay||0;$('uDuzen').textContent=d.klavye+' klavye';$('uSes').textContent=d.sesTus?'Ses: açık':'Ses: kapalı';$('uDurak').textContent=u.durak?'Devam et':'Duraklat';}
+function uBasla(){uDur();if(!uArka)uArka=uArkaCiz();u={dalga:1,puan:0,kalkan:5,gemi:[],hedef:null,seri:0,sok:0,cps:2.2,parca:[],lazer:[],durak:false,bitti:false,son:performance.now(),sure:0,vurus:0,kelime:0,sars:0,kilitT:0,tum:tumKelime(),raf:0};
+ $('uKart').hidden=false;uDalgaKur();if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();$('uKart').scrollIntoView({block:'start'});u.raf=requestAnimationFrame(uKare);}
+function uDur(){if(u){if(u.raf)cancelAnimationFrame(u.raf);u.raf=0;if(!u.bitti&&u.sure>5){gunEkle(u.sure);}u.aktifDegil=true;}}
+function uPatla(x,y,renk,n){for(var i=0;i<(n||18);i++){var a=Math.random()*6.28,v=40+Math.random()*220;u.parca.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,o:0.5+Math.random()*0.5,r:renk});}}
+function uVur(g){var cr=Math.min(5,1+Math.floor(u.seri/5)),gen=uGen(g);u.lazer.push({x:gen.x,y:g.y,o:0.22});uPatla(gen.x+gen.w/2,g.y,g.boss?'#ff9d6b':'#8fd0ff',g.boss?30:18);
+ u.puan+=g.k.length*10*cr;u.seri++;u.kelime++;u.sok=Math.min(1,u.sok+0.1);var dt=(performance.now()-u.kilitT)/1000;if(dt>0.15){var c=g.k.length/dt;u.cps=Math.max(1.2,Math.min(6,u.cps*0.85+c*0.15));}
+ if(d.sesTus)try{tusSesi(0.5,0,true);}catch(e){}
+ if(g.boss&&g.liste.length){g.k=g.liste.shift();g.i=0;g.kalan--;g.x=Math.min(UW-200,g.x+90);u.hedef=null;}else{u.gemi.splice(u.gemi.indexOf(g),1);u.hedef=null;if(g.boss)u.puan+=500;}uHud();}
+function uSok(){if(u.sok<1)return;u.sok=0;u.sars=0.35;u.dalgaHalka=0.01;u.gemi.slice().forEach(function(g){if(g.boss){g.x=Math.min(UW-200,g.x+220);}else{var gen=uGen(g);uPatla(gen.x+gen.w/2,g.y,'#9af5e0',14);u.puan+=g.k.length*5;u.gemi.splice(u.gemi.indexOf(g),1);}});u.hedef=u.gemi.indexOf(u.hedef)>=0?u.hedef:null;if(u.hedef)u.hedef.i=0,u.hedef=null;uHud();}
+function uTus(e){if(!u||u.aktifDegil||$('oyun').hidden||$('uKart').hidden)return;if(e.ctrlKey||e.altKey||e.metaKey)return;
+ if(e.key==='Escape'){if(!u.bitti){u.durak=!u.durak;u.son=performance.now();uHud();}return;}
+ if(u.bitti){if(e.key==='Enter'){e.preventDefault();uBasla();}return;}if(u.durak)return;
+ if(e.key==='Enter'){e.preventDefault();uSok();return;}
+ if(e.key==='Backspace'){e.preventDefault();if(u.hedef){u.hedef.i=0;u.hedef=null;}return;}
+ if(e.key===' '){e.preventDefault();return;}if(!e.key||e.key.length!==1)return;var ch=e.key.toLocaleLowerCase('tr');if(!/[a-zçğıöşü]/.test(ch))return;e.preventDefault();u.vurus++;
+ if(d.sesTus)try{tusSesi(0.3,0,false);}catch(x){}
+ if(!u.hedef){var en=null;u.gemi.forEach(function(g){if(g.x<UW-10&&g.k.charAt(0)===ch&&(!en||g.x<en.x))en=g;});if(en){u.hedef=en;en.i=1;u.kilitT=performance.now();if(en.k.length===1)uVur(en);}else{u.seri=0;u.hata=0.25;}return;}
+ var g=u.hedef;if(g.k.charAt(g.i)===ch){g.i++;if(g.i>=g.k.length)uVur(g);}else{u.seri=0;u.hata=0.25;}}
+function uGen(g){var w=(g.boss?40:26)+g.k.length*(g.boss?19:15.5)+(g.boss?70:34);return {w:w,h:g.boss?74:50,x:g.x};}
+function uBitir(){u.bitti=true;var rek=u.puan>(d.rekorUzay||0);if(rek)d.rekorUzay=u.puan;u.rek=rek;gunEkle(u.sure);kaydet();uHud();}
+function uKare(simdi){if(!u||u.aktifDegil)return;var dt=Math.min(0.05,(simdi-u.son)/1000);u.son=simdi;if(!u.durak&&!u.bitti)uIlerle(dt);uCiz();u.raf=requestAnimationFrame(uKare);}
+function uIlerle(dt){u.sure+=dt;if(u.mesaj){u.mesaj.s-=dt;if(u.mesaj.s<=0)u.mesaj=null;}if(u.hata>0)u.hata-=dt;if(u.sars>0)u.sars-=dt;if(u.dalgaHalka){u.dalgaHalka+=dt*2.2;if(u.dalgaHalka>1.2)u.dalgaHalka=0;}
+ u.dogan-=dt;if(u.dogan<=0){if(u.sira>0){uGemiEkle(false);u.sira--;var zf=Math.min(0.9,0.5+0.03*u.dalga),ort=Math.min(10,4+u.dalga/2)*0.75+1;u.dogan=Math.max(0.55,ort/(u.cps*zf));}
+  else if(u.boss&&!u.bossGeldi){uGemiEkle(true);u.bossGeldi=true;}
+  else if(!u.gemi.length){u.dalga++;u.puan+=100;uDalgaKur();}}
+ for(var i=u.gemi.length-1;i>=0;i--){var g=u.gemi[i];g.x-=g.v*dt;if(g.x<=UBAR){u.kalkan-=g.boss?5:1;u.sars=0.3;u.seri=0;uPatla(UBAR,g.y,'#ff6b6b',22);if(u.hedef===g)u.hedef=null;u.gemi.splice(i,1);uHud();if(u.kalkan<=0){u.kalkan=0;uHud();uBitir();return;}}}
+ u.parca=u.parca.filter(function(p){p.x+=p.vx*dt;p.y+=p.vy*dt;p.o-=dt*1.6;return p.o>0;});u.lazer=u.lazer.filter(function(l){l.o-=dt;return l.o>0;});}
+function uYuvar(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();}
+function uCiz(){var c=$('uTuval'),g=c.getContext('2d'),i,t=u.sure;g.save();if(u.sars>0)g.translate((Math.random()-0.5)*10*u.sars/0.3,(Math.random()-0.5)*8*u.sars/0.3);g.drawImage(uArka,0,0);
+ /* bariyer */ for(i=0;i<5;i++){g.fillStyle=i<u.kalkan?'rgba(120,160,255,'+(0.75+0.2*Math.sin(t*3+i))+')':'rgba(70,80,120,0.35)';uYuvar(g,UBAR-6,50+i*80,6,62,3);g.fill();}
+ /* oyuncu gemisi */ var gy=UH/2+Math.sin(t*1.6)*5,hy=u.hedef?u.hedef.y:gy;g.save();g.translate(150,gy);
+ g.fillStyle='rgba(120,190,255,'+(0.5+0.3*Math.sin(t*20))+')';g.beginPath();g.ellipse(-78,-22,22+4*Math.sin(t*25),6,0,0,6.28);g.ellipse(-78,22,22+4*Math.sin(t*25+1),6,0,0,6.28);g.fill();
+ var r=g.createLinearGradient(-70,-50,70,50);r.addColorStop(0,'#e8eeff');r.addColorStop(0.5,'#7b8fd8');r.addColorStop(1,'#2a3676');g.fillStyle=r;g.strokeStyle='#bcd0ff';g.lineWidth=2;
+ g.beginPath();g.moveTo(92,0);g.lineTo(18,-20);g.lineTo(-6,-52);g.lineTo(-40,-52);g.lineTo(-30,-26);g.lineTo(-70,-30);g.lineTo(-70,30);g.lineTo(-30,26);g.lineTo(-40,52);g.lineTo(-6,52);g.lineTo(18,20);g.closePath();g.fill();g.stroke();
+ g.fillStyle='#8fe3ff';g.beginPath();g.moveTo(52,0);g.lineTo(14,-9);g.lineTo(-6,0);g.lineTo(14,9);g.closePath();g.fill();g.fillStyle='#1b2350';g.fillRect(-58,-30,34,10);g.fillRect(-58,20,34,10);g.restore();
+ /* lazer */ u.lazer.forEach(function(l){g.strokeStyle='rgba(150,225,255,'+(l.o/0.22)+')';g.lineWidth=5;g.beginPath();g.moveTo(242,gy);g.lineTo(l.x,l.y);g.stroke();g.strokeStyle='rgba(255,255,255,'+(l.o/0.22)+')';g.lineWidth=1.5;g.stroke();});
+ if(u.hedef){g.strokeStyle='rgba(140,200,255,0.28)';g.setLineDash([6,8]);g.lineWidth=1.5;g.beginPath();g.moveTo(242,gy);g.lineTo(u.hedef.x,hy);g.stroke();g.setLineDash([]);}
+ /* dusman gemiler */ u.gemi.forEach(function(q){var b=uGen(q),x=q.x,y=q.y-b.h/2,kil=u.hedef===q,fs=q.boss?30:25;
+  g.fillStyle='rgba(255,150,90,'+(0.35+0.25*Math.sin(t*18+q.y))+')';g.beginPath();g.ellipse(x+b.w+10,q.y,16,q.boss?12:7,0,0,6.28);g.fill();
+  g.fillStyle=q.boss?'rgba(48,14,30,0.94)':'rgba(12,18,44,0.94)';g.strokeStyle=kil?'#ffd24a':(q.boss?'#ff7b6b':'#5f77d8');g.lineWidth=kil?3.5:2;uYuvar(g,x,y,b.w,b.h,10);g.fill();g.stroke();
+  g.font='600 '+fs+'px Consolas,"Courier New",monospace';g.textBaseline='middle';var tx=x+(q.boss?20:13),ya=q.k.slice(0,q.i),ka=q.k.slice(q.i);g.fillStyle='#ffd24a';g.fillText(ya,tx,q.y+1);g.fillStyle='#fff';g.fillText(ka,tx+g.measureText(ya).width,q.y+1);
+  g.fillStyle=q.boss?'#ff9d6b':'#7f9bff';g.beginPath();var ix=x+b.w-(q.boss?34:20);g.moveTo(ix,q.y-9);g.lineTo(ix+8,q.y);g.lineTo(ix,q.y+9);g.lineTo(ix-8,q.y);g.closePath();g.fill();
+  if(q.boss){g.font='13px Consolas,monospace';g.fillStyle='#ffb3a0';g.fillText('DEV GEMİ · kalan '+q.kalan,x+20,y-10);}});
+ u.parca.forEach(function(p){g.globalAlpha=Math.max(0,p.o);g.fillStyle=p.r;g.fillRect(p.x,p.y,3,3);});g.globalAlpha=1;
+ if(u.dalgaHalka){g.strokeStyle='rgba(150,245,225,'+(1-u.dalgaHalka/1.2)+')';g.lineWidth=8;g.beginPath();g.arc(150,gy,u.dalgaHalka*1000,0,6.28);g.stroke();}
+ if(u.hata>0){g.fillStyle='rgba(255,60,60,'+(u.hata*0.5)+')';g.fillRect(0,0,UW,UH);}
+ /* ust yazi */ g.font='14px Consolas,monospace';g.textBaseline='top';g.fillStyle='#c9d4ff';var sn=Math.floor(u.sure),wpm=u.sure>3?Math.round(u.vurus/5/(u.sure/60)):0,cr=Math.min(5,1+Math.floor(u.seri/5));
+ g.fillText('DALGA '+u.dalga+' · SEVİYE '+(1+Math.floor((u.dalga-1)/5)),18,14);g.textAlign='right';g.fillText(('0'+Math.floor(sn/60)).slice(-2)+':'+('0'+sn%60).slice(-2)+' · ort. '+wpm+' kelime/dk',UW-18,14);g.textAlign='center';
+ if(u.puan>(d.rekorUzay||0)&&(d.rekorUzay||0)>0){g.fillStyle='#ffd24a';g.fillText('YENİ REKOR TEMPOSU +'+(u.puan-d.rekorUzay),UW/2,14);}
+ /* alt serit */ g.fillStyle='rgba(8,12,30,0.86)';g.fillRect(0,UH-44,UW,44);g.textBaseline='middle';g.textAlign='left';g.font='14px Consolas,monospace';g.fillStyle='#9fb0e6';g.fillText('ŞOK DALGASI',UW-360,UH-22);
+ g.fillStyle='#232b55';uYuvar(g,UW-262,UH-27,90,10,5);g.fill();g.fillStyle=u.sok>=1?'#7df0d8':'#5d7de0';uYuvar(g,UW-262,UH-27,Math.max(6,90*u.sok),10,5);g.fill();if(u.sok>=1){g.fillStyle='#7df0d8';g.fillText('Enter',UW-166,UH-22);}
+ g.font='700 24px Consolas,monospace';g.fillStyle='#fff';g.fillText('×'+cr,UW-104,UH-21);g.font='12px Consolas,monospace';g.fillStyle='#9fb0e6';g.fillText(u.seri+' seri',UW-62,UH-21);
+ g.font='15px Consolas,monospace';g.fillStyle=u.hedef?'#ffd24a':'#9fb0e6';g.fillText(u.hedef?'Kilit: '+u.hedef.k.slice(0,u.hedef.i)+'▌'+u.hedef.k.slice(u.hedef.i):'Bir harf yaz: gemi kilitlenir',18,UH-22);
+ g.textAlign='center';if(u.mesaj){g.font='700 34px Consolas,monospace';g.fillStyle='rgba(255,255,255,'+Math.min(1,u.mesaj.s)+')';g.fillText(u.mesaj.t,UW/2,110);}
+ if(u.durak||u.bitti){g.fillStyle='rgba(5,8,20,0.78)';g.fillRect(0,0,UW,UH);g.fillStyle='#fff';g.font='700 40px Consolas,monospace';g.fillText(u.bitti?'KALKAN DÜŞTÜ':'DURAKLATILDI',UW/2,UH/2-50);g.font='20px Consolas,monospace';g.fillStyle='#c9d4ff';
+  if(u.bitti){g.fillText('Puan '+u.puan+(u.rek?' — yeni rekor!':'')+' · Dalga '+u.dalga+' · '+u.kelime+' gemi · ort. '+wpm+' kelime/dk',UW/2,UH/2+4);g.fillText('Yeniden başlamak için Enter',UW/2,UH/2+48);}else g.fillText('Devam etmek için Esc',UW/2,UH/2+4);}
+ g.textAlign='left';g.restore();}
+document.addEventListener('keydown',uTus);
+$('uBasla').addEventListener('click',uBasla);$('uYeni').addEventListener('click',uBasla);
+$('uDurak').addEventListener('click',function(){if(u&&!u.bitti){u.durak=!u.durak;u.son=performance.now();uHud();}this.blur();});
+$('uSes').addEventListener('click',function(){d.sesTus=!d.sesTus;kaydet();if(u)uHud();this.blur();});
+$('uTam').addEventListener('click',function(){var k=$('uKart');try{if(document.fullscreenElement)document.exitFullscreen();else if(k.requestFullscreen)k.requestFullscreen();}catch(e){}this.blur();});
 yukle();temaUygula();anaCiz();
 (function(){var b=document.body,bl=b.getAttribute('data-bolum');if(!bl)return;var st=b.getAttribute('data-set'),tr=b.getAttribute('data-tur');if(tr&&TURAD[tr])d.sinavTur=tr;
  if(bl==='sinav'){if(st){sbSetK=st;sbMetinAc(sbSetIc()[0]);}else sinavAc();}else goster(bl);window.scrollTo(0,0);if(document.activeElement&&document.activeElement.blur&&bl==='sinav'&&window.innerWidth<960)document.activeElement.blur();})();

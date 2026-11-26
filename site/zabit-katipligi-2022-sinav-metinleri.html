@@ -221,9 +221,17 @@
  <div class="kart"><h2>Oyunlar</h2>
   <div class="izgara">
    <div class="secenek" style="cursor:default"><b>Kelime Yağmuru</b><span class="soluk">Kelimeler yukarıdan düşer. Yere değmeden yazın. Üç kelime kaçırırsanız oyun biter; her 10 kelimede hız artar.</span><p><button class="btn" id="yBasla">Oyunu başlat</button></p></div>
+   <div class="secenek" style="cursor:default"><b>Uzay Savunması</b><span class="soluk">Sağdan gelen gemilerin kelimelerini yazarak kalkanınızı koruyun. İlk harfi yazınca gemi kilitlenir. Dalgalar sizin hızınıza göre kurulur; her 5 dalgada bir dev gemi gelir.</span><p><button class="btn" id="uBasla">Oyunu başlat</button></p></div>
    <div class="secenek" style="cursor:default"><b>Rakiple Yarış</b><span class="soluk">Sabit hızda yazan bir rakibe karşı 60 kelimelik metni önce bitirin. Yanlış kelimeyi düzeltmeden ilerleyemezsiniz.</span>
     <div class="satir" style="margin-top:10px"><label>Rakip hızı<select id="rHiz"><option value="20">20 kelime/dk (kolay)</option><option value="30" selected>30 kelime/dk (baraj hızı)</option><option value="40">40 kelime/dk</option><option value="50">50 kelime/dk</option><option value="65">65 kelime/dk (zor)</option></select></label><button class="btn" id="rBasla">Yarışı başlat</button></div></div>
   </div>
+ </div>
+ <div class="kart" id="uKart" hidden>
+  <div class="ust2"><span>Uzay Savunması · <b id="uDuzen"></b> · Bu tarayıcıdaki rekor <b id="uRekor">0</b> puan</span>
+   <span><button class="btn kucuk" id="uSes">Ses</button> <button class="btn kucuk" id="uDurak">Duraklat</button> <button class="btn kucuk" id="uYeni">Yeniden başlat</button> <button class="btn kucuk" id="uTam">Tam ekran</button></span></div>
+  <div class="uHud"><div>Dalga<b id="uDalga">1</b></div><div>Puan<b id="uPuan">0</b></div><div>Kalkan<b id="uKalkan">5 / 5</b></div></div>
+  <canvas id="uTuval" width="1200" height="480"></canvas>
+  <div class="ust2" style="margin:10px 0 0"><span>Bir harf yazın: gemi kilitlenir · Geri tuşu kilidi bırakır · Enter: şok dalgası (dolunca) · Esc: duraklat</span></div>
  </div>
  <div class="kart" id="yKart" hidden><h2>Kelime Yağmuru</h2>
   <div class="sayac"><div>Puan<b id="yPuan">0</b></div><div>Can<b id="yCan">3</b></div><div>Seviye<b id="ySev">1</b></div><div>Rekor<b id="yRekor">0</b></div></div>
