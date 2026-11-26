@@ -1,6 +1,6 @@
 # Kâtip Klavye: tek dosyalı kaynaktan çok sayfalı site üretir.  Kullanım: python3 build.py [SITE_URL]
 import re,json,os,sys,shutil,html,datetime
-KAYNAK='/mnt/user-data/outputs/KatipKlavye.html'; CIKTI='/home/claude/site/out'
+_D=os.path.dirname(os.path.abspath(__file__)); KAYNAK=os.path.join(_D,'KatipKlavye.html'); CIKTI=os.path.join(_D,'..','site')
 SITE_URL=(sys.argv[1].rstrip('/') if len(sys.argv)>1 else '')   # alan adı belli olunca verilecek
 SIRKET='Bosphorus Global İnşaat Turizm ve Dış Ticaret Limited Şirketi'; EPOSTA='iletisim@katipklavyesi.com'; ADRES='Halil Rıfat Paşa Mah. Yüzer Havuz Sk. Perpa Ticaret Merkezi B Blok No: 1/1 İç Kapı No: 2484 Şişli / İstanbul<br>İstanbul Ticaret Sicili No: 341373-5 · MERSİS No: 0180094375400001 · Şişli Vergi Dairesi'
 TEMAS="<script>(function(){var k=true;try{var t=JSON.parse(localStorage.getItem('katipKlavye_v1')||'{}');k=!(t.temaV&&t.tema==='acik');}catch(e){}if(k)document.body.classList.add('koyu');})();</script>"
@@ -17,7 +17,7 @@ header=re.search(r'<header>.*?</header>',govde,re.S).group(0)
 main=re.search(r'<main>(.*?)</main>',govde,re.S).group(1)
 extra=govde[govde.index('</main>')+7:]  # footer vb.
 footer0=re.search(r'<footer>(.*?)</footer>',extra,re.S).group(1)
-DOSYA={'ana':'index.html','sinav':'sinav-simulasyonu.html','hiz':'klavye-hiz-testi.html','ders':'klavye-dersleri.html','kelime':'kelime-egzersizi.html','hata':'zayif-tus-ve-kelime.html','okuma':'hizli-okuma.html','oyun':'klavye-oyunlari.html','taban':'adliye-taban-puanlari.html','ist':'istatistik.html','arac':'araclar.html','ayar':'ayarlar.html'}
+DOSYA={'ana':'index.html','sinav':'sinav-simulasyonu.html','hiz':'klavye-hiz-testi.html','ders':'klavye-dersleri.html','kelime':'kelime-egzersizi.html','hata':'zayif-tus-ve-kelime.html','okuma':'hizli-okuma.html','oyun':'klavye-oyunlari.html','taban':'adliye-taban-puanlari.html','ist':'istatistik.html','arac':'araclar.html','ayar':'ayarlar.html','maas':'memur-maasi-ne-eder.html'}
 def nav_yap(aktif):
     def f(mm):
         s=mm.group(1); return '<a data-s="%s" href="%s"%s>%s</a>'%(s,DOSYA[s],' class="on"' if s==aktif else '',mm.group(2))
@@ -164,6 +164,16 @@ _li=''.join('<li><a href="%s">%s</a>%s</li>'%(dosya_ad(r['ad']),html.escape(tama
 yasal('adliyeler.html','Adliyelere Göre Zabıt Kâtipliği Taban Kelime ve KPSS Puanları | Kâtip Klavye','%d adliye ve bölge adliye mahkemesi için zabıt kâtipliği klavye taban kelime sayıları ve KPSS taban puanları. Adliyenizi seçin.'%len(ADL),
  '<h1>Adliyelere göre zabıt kâtipliği taban kelime ve KPSS puanları</h1><p>Aşağıda %d adliye ve bölge adliye mahkemesinin sayfası var. Her sayfada o adliyenin son alımlardaki taban kelime sayısı, KPSS taban puanları, kontenjanı ve sınavda kullanılan klavye bilgisi yer alır. Hepsini tek tabloda karşılaştırmak için <a href="adliye-taban-puanlari.html">karşılaştırmalı tabloyu</a> kullanın.</p>%s<ul style="columns:2;padding-left:18px;line-height:1.9">%s</ul>'%(len(ADL),UYARI,_li))
 ADL_URL.append('adliyeler.html')
+
+# ---- memur maaşı sayfası (maas.katipklavyesi.com gömülü)
+MAAS_GOVDE=('<h1>Memur maaşın ne eder?</h1><p>Maaşını yaz; kaç gram altın, kaç dolar ettiğini, Ocak\'tan beri enflasyon karşısında ne kadar eridiğini ve 2027 zammının neyi karşılayacağını gör. '
+ 'Hazır düğmelerde en düşük memur maaşı (aile yardımı dahil, Temmuz 2026: 70.224 TL), en düşük emekli aylığı ve asgari ücret var; kendi maaşını da yazabilirsin. Yazdığın rakam yalnızca kendi tarayıcında kalır.</p>'
+ '<p class="soluk">Asgari ücret: Çalışma ve Sosyal Güvenlik Bakanlığı · Enflasyon: TÜİK · Altın ve dolar: piyasa ortalamaları. Sonuçlar yaklaşıktır. <a href="https://maas.katipklavyesi.com/" target="_blank" rel="noopener">Hesaplayıcıyı tam ekran aç</a></p>')
+MAAS_CER=('<iframe id="maasCerceve" title="Maaşın Ne Eder hesaplayıcısı" style="width:100%;height:1400px;border:0;border-radius:14px;display:block;margin-top:16px;background:transparent"></iframe>'
+ "<script>(function(){var c=document.getElementById('maasCerceve');c.src='https://maas.katipklavyesi.com/?gom=1&tema='+(document.body.classList.contains('koyu')?'koyu':'acik');"
+ "window.addEventListener('message',function(e){if(e.origin!=='https://maas.katipklavyesi.com'||!e.data||typeof e.data.mneH!=='number')return;c.style.height=Math.max(600,Math.min(20000,e.data.mneH))+'px';});})();</script>")
+open(os.path.join(CIKTI,DOSYA['maas']),'w',encoding='utf-8').write(kafa('Memur Maaşı Kaç Gram Altın, Kaç Dolar? 2026 Maaş Hesaplama | Kâtip Klavye','Memur maaşın kaç gram altın, kaç dolar ediyor? Ocak\'tan beri enflasyonla ne kadar eridi, 2027 zammı neyi karşılar? En düşük memur maaşıyla hemen hesapla.',DOSYA['maas'])+'<body>\n@@TS@@%s\n<main><div class="kart">%s</div>%s</main>\n<footer>%s%s</footer>\n@@TY@@%s\n</body>\n</html>\n'%(nav_yap('maas'),MAAS_GOVDE,MAAS_CER,footer0,YASAL,KUCUK))
+ADL_URL.append(DOSYA['maas'])
 open(CIKTI+'/robots.txt','w').write('User-agent: *\nAllow: /\n'+('Sitemap: %s/sitemap.xml\n'%SITE_URL if SITE_URL else ''))
 if SITE_URL:
     urls=[d for d,_,_,_,_,_,_,i in S if i]+['hakkinda-ve-iletisim.html','gizlilik-ve-cerez.html','kullanim-sartlari.html']+ADL_URL
