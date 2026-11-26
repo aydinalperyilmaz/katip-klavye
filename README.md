@@ -4,4 +4,4 @@ Zabıt kâtipliği, icra kâtipliği ve cezaevi kâtipliği klavye sınavına ha
 
 - `site/` — yayınlanan statik site (Cloudflare Pages çıktı klasörü: `site`, derleme komutu yok)
 - `kaynak/KatipKlavye.html` — tek dosyalık kaynak sürüm
-- `kaynak/build.py` — kaynaktan çok sayfalı siteyi üreten betik (`python3 build.py https://alanadi.com`)
+- `kaynak/build.py` — kaynaktan çok sayfalı siteyi üreten betik (`python3 build.py https://katipklavyesi.com`)
